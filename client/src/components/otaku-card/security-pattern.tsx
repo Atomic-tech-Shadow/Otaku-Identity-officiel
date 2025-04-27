@@ -32,27 +32,7 @@ export function SecurityPattern({ className }: SecurityPatternProps) {
   );
 }
 
-// Add the required animation keyframes to the global style
+// No longer needed as we've moved these styles to index.css
 export function SecurityPatternStyles() {
-  return (
-    <style jsx global>{`
-      @keyframes holo-shift {
-        0%, 100% { background-position: 0% 0%; opacity: 0.5; }
-        50% { background-position: 100% 100%; opacity: 0.8; }
-      }
-      
-      @keyframes pattern-shift {
-        0% { background-position: 0% 0%; }
-        100% { background-position: 100% 100%; }
-      }
-      
-      .animate-holo-shift {
-        animation: holo-shift 3s ease infinite;
-      }
-      
-      .animate-pattern-shift {
-        animation: pattern-shift 15s linear infinite;
-      }
-    `}</style>
-  );
+  return null;
 }

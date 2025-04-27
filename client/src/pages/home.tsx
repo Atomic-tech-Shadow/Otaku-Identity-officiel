@@ -4,7 +4,6 @@ import { Footer } from "@/components/otaku-card/footer";
 import { IdCardForm } from "@/components/otaku-card/id-card-form";
 import { IdCardPreview } from "@/components/otaku-card/id-card-preview";
 import { OtakuIdCard } from "@/types/id-card";
-import { SecurityPatternStyles } from "@/components/otaku-card/security-pattern";
 import { elementToImage, formatCurrentDate, generateCardNumber } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -74,7 +73,7 @@ export default function Home() {
 
   return (
     <>
-      <SecurityPatternStyles />
+      {/* Security pattern styles moved to index.css */}
       <Header />
       
       <main className="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
