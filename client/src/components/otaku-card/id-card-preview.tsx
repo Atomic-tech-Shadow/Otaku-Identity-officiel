@@ -35,8 +35,8 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         </div>
         <div className="card-badge top-1.5 right-1.5 bg-blue-200 shadow-inner">
           <svg width="22" height="22" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" stroke="#3B82F6" strokeWidth="3" strokeOpacity="0.7" fill="none" />
-            <path d="M20 10V20L28 24" stroke="#3B82F6" strokeWidth="3" strokeOpacity="0.7" />
+            <path d="M10,10 L30,10 L30,30 L10,30 Z" stroke="#3B82F6" strokeWidth="3" strokeOpacity="0.7" fill="none" />
+            <path d="M10,10 L30,30 M10,30 L30,10" stroke="#3B82F6" strokeWidth="3" strokeOpacity="0.7" />
           </svg>
         </div>
 
@@ -66,24 +66,24 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             
             {/* Basic Info */}
             <div className="mt-1 space-y-0.5">
-              <div className="flex items-start">
-                <p className="text-[10px] font-bold text-black w-10">
+              <div className="flex items-center">
+                <p className="text-[10px] font-bold text-black w-12">
                   NOM:
                 </p>
-                <p className="text-[10px] font-medium text-black flex-1 truncate">
+                <p className="text-[10px] font-medium text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                   {card.username || "..."}
                 </p>
               </div>
-              <div className="flex items-start">
-                <p className="text-[10px] font-bold text-black w-10">
+              <div className="flex items-center">
+                <p className="text-[10px] font-bold text-black w-12">
                   RÉEL:
                 </p>
-                <p className="text-[10px] font-medium text-black flex-1 truncate">
+                <p className="text-[10px] font-medium text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                   {card.realName || "..."}
                 </p>
               </div>
-              <div className="flex items-start">
-                <p className="text-[10px] font-bold text-black w-10">
+              <div className="flex items-center">
+                <p className="text-[10px] font-bold text-black w-12">
                   PAYS:
                 </p>
                 <div className="flex items-center gap-1 text-[10px] font-medium text-black flex-1">
@@ -95,7 +95,9 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                       style={{ boxShadow: "0 0 1px rgba(0,0,0,0.3)" }}
                     />
                   )}
-                  <span className="truncate">{countryData?.name || "..."}</span>
+                  <span className="overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                    {countryData?.name || "..."}
+                  </span>
                 </div>
               </div>
             </div>
@@ -106,33 +108,37 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             <div className="flex space-x-3">
               {/* Middle Info Section */}
               <div className="flex-1 space-y-0.5">
-                <div className="flex items-start">
+                <div className="flex items-center">
                   <p className="text-[10px] font-bold text-black w-16">
                     STATUT:
                   </p>
-                  <p className="text-[10px] font-medium text-black flex-1 truncate">
+                  <p className="text-[10px] font-medium text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                     {card.status || "..."}
                   </p>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-center">
                   <p className="text-[10px] font-bold text-black w-16">
                     GENRE:
                   </p>
-                  <p className="text-[10px] font-medium text-black flex-1 truncate">
+                  <p className="text-[10px] font-medium text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                     {card.genre || "..."}
                   </p>
                 </div>
                 
-                {/* Footer text - Shadow Garden */}
+                {/* Citation */}
                 <div className="bg-transparent p-0 mt-1 max-w-full">
-                  <p className="text-[10px] font-medium text-black italic break-words max-h-16 overflow-y-auto whitespace-pre-wrap">
+                  <p className="text-[10px] font-medium text-black italic overflow-hidden" style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: '2',
+                    WebkitBoxOrient: 'vertical'
+                  }}>
                     "{card.quote || "..."}"
                   </p>
                 </div>
                 
                 <div className="mt-2 text-center pt-0.5">
-                  <p className="text-[9px] text-gray-700 italic">
-                    Cette carte d'identité atteste de votre passion pour l'univers des animes et des mangas.
+                  <p className="text-[9px] text-gray-800 italic">
+                    Cette carte atteste de votre passion pour l'univers des animes
                   </p>
                 </div>
               </div>
@@ -165,11 +171,11 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                     )}
                   </div>
                 )}
-                <div className="mt-1 text-center">
-                  <p className="text-[9px] font-semibold text-gray-800">
+                <div className="mt-1 text-center bg-gradient-to-r from-blue-100 to-blue-50 rounded-sm p-1">
+                  <p className="text-[9px] font-bold text-gray-800">
                     SHADOW GARDEN
                   </p>
-                  <p className="text-[8px] text-blue-600">
+                  <p className="text-[8px] font-medium text-blue-600">
                     QUARTIER GÉNÉRAL
                   </p>
                 </div>
@@ -192,7 +198,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           </div>
         </div>
         
-        {/* Background Dragon Watermark */}
+        {/* Background Anime Character Silhouette */}
         <div className="absolute right-0 top-1/3 bottom-0 w-2/3 opacity-8 z-5">
           <svg 
             width="100%" 
@@ -201,12 +207,24 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             xmlns="http://www.w3.org/2000/svg" 
             style={{ position: 'absolute', right: 0, top: 0 }}
           >
-            <g fill="#666">
-              <path d="M250,50 C270,60 280,80 270,100 C260,120 230,130 200,125 C170,120 160,140 170,160 C180,180 210,185 230,170 C250,155 260,170 240,180 C220,190 190,185 170,170 C150,155 145,125 160,105 C175,85 205,80 225,90 C245,100 230,120 210,115 C190,110 185,90 195,75 C205,60 235,65 250,50 Z M140,140 C160,130 165,105 155,90 C145,75 125,70 105,80 C85,90 75,115 85,135 C95,155 120,150 140,140 Z M100,140 C110,180 90,220 60,240 C40,255 30,240 40,225 C50,210 75,180 70,160 C65,140 45,135 35,150 C25,165 35,185 50,190" 
-                strokeWidth="4" 
-                stroke="#555" 
-                fill="none" 
-              />
+            <g fill="none" stroke="#555" strokeWidth="2.5">
+              {/* Stylized Anime Character */}
+              <path d="M200,50 C215,65 220,85 215,105 C210,125 190,135 170,130 C155,127 145,115 150,100 C155,85 175,80 190,90" />
+              <path d="M150,90 C140,95 135,110 140,125 C145,140 160,145 175,140 C185,137 190,125 185,115 C180,105 170,100 160,105" />
+              <path d="M130,110 C120,125 120,145 130,160 C140,175 150,185 160,180 C170,175 175,160 170,145 C165,130 155,120 140,125" />
+              <path d="M110,150 C105,165 110,180 125,190 C140,200 155,200 165,190 C175,180 175,165 165,155 C155,145 145,145 135,155" />
+              <path d="M100,180 C95,195 100,210 115,220 C130,230 145,225 155,215 C165,205 165,190 155,180 C145,170 135,175 125,185" />
+              <path d="M90,200 C85,215 90,230 105,240 C120,250 135,245 145,235 C155,225 155,210 145,200 C135,190 125,195 115,205" />
+              
+              {/* Sword */}
+              <path d="M230,70 L180,120 M180,120 L200,140 M200,140 L220,160 M220,160 L250,190" strokeWidth="3" />
+              <path d="M175,125 L165,135" strokeWidth="3" />
+              
+              {/* Hair */}
+              <path d="M210,40 C220,35 230,50 225,60 C220,70 210,65 205,55" />
+              <path d="M200,35 C210,30 220,45 215,55 C210,65 200,60 195,50" />
+              <path d="M190,30 C200,25 210,40 205,50 C200,60 190,55 185,45" />
+              <path d="M180,25 C190,20 200,35 195,45 C190,55 180,50 175,40" />
             </g>
           </svg>
         </div>
