@@ -16,11 +16,23 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
     <div className="max-w-xl mx-auto mb-4">
       <div
         ref={cardRef}
-        className="aspect-[1.586/1] relative rounded-lg overflow-hidden card-shadow"
+        className="aspect-[1.586/1] relative rounded-lg overflow-hidden card-shadow card-holographic"
         style={{
           background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)'
         }}
       >
+        {/* Card corner badges */}
+        <div className="card-badge top-2 left-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9H22L16 13.5L18 21L12 17L6 21L8 13.5L2 9H9.5L12 2Z" fill="#3B82F6" fillOpacity="0.6" />
+          </svg>
+        </div>
+        <div className="card-badge top-2 right-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.6" fill="none" />
+            <path d="M12 6V12L16 14" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.6" />
+          </svg>
+        </div>
         {/* Background Atomic Symbol Watermark */}
         <div className="absolute right-0 top-1/4 bottom-0 w-2/3 opacity-10 z-10">
           <svg 

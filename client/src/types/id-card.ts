@@ -1,5 +1,5 @@
 export interface OtakuIdCard {
-  id?: string;
+  id?: number;
   username: string;
   realName: string;
   nationality: string;
@@ -12,3 +12,6 @@ export interface OtakuIdCard {
   cardNumber?: string;
   issueDate?: string;
 }
+
+// Alias pour la compatibilité avec les requêtes API
+export type IdCard = OtakuIdCard;

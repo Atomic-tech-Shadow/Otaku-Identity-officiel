@@ -266,23 +266,63 @@ export function IdCardForm({ initialCard, onCardChange, onDownload }: IdCardForm
 
           {/* QR Code Link (conditional) */}
           {form.watch("qrCodeEnabled") && (
-            <FormField
-              control={form.control}
-              name="qrCodeLink"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Lien pour le QR code</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="https://myanimelist.net/profile/username"
-                      {...field}
-                      value={field.value || ""}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <>
+              <FormField
+                control={form.control}
+                name="qrCodeLink"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Lien pour le QR code</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="https://myanimelist.net/profile/username"
+                        {...field}
+                        value={field.value || ""}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Entrez n'importe quelle URL de réseau social (Facebook, Twitter, Instagram, etc.)
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => form.setValue("qrCodeLink", "https://www.facebook.com/")}
+                >
+                  Facebook
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => form.setValue("qrCodeLink", "https://twitter.com/")}
+                >
+                  Twitter
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => form.setValue("qrCodeLink", "https://www.instagram.com/")}
+                >
+                  Instagram
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => form.setValue("qrCodeLink", "https://myanimelist.net/profile/")}
+                >
+                  MyAnimeList
+                </Button>
+              </div>
+            </>
           )}
 
           {/* Download Button */}
