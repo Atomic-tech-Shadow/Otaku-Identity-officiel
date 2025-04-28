@@ -73,14 +73,52 @@ export const otakuStatuses = [
 export const elementToImage = async (element: HTMLElement): Promise<string> => {
   // Dynamically import html2canvas to avoid server-side rendering issues
   const html2canvas = (await import("html2canvas")).default;
+  
+  // Temporarily apply fixed positioning styles to ensure everything is visible
+  const originalStyles = {
+    width: element.style.width,
+    height: element.style.height,
+    position: element.style.position,
+    left: element.style.left,
+    top: element.style.top,
+    overflow: element.style.overflow
+  };
+  
+  // Apply fixed dimensions to ensure all content is captured properly
+  if (window.innerWidth < 768) { // Mobile
+    element.style.width = '400px';
+  } else {
+    element.style.width = '500px';
+  }
+  element.style.height = 'auto';
+  
+  // Create a high-quality capture
   const canvas = await html2canvas(element, {
-    scale: 2, // Higher scale for better quality
+    scale: 3, // Higher scale for better quality
     useCORS: true, // Allow images from other domains
     allowTaint: true, // Allow "tainted" images from other domains
     backgroundColor: null, // Transparent background
+    logging: false,
+    imageTimeout: 0, // No timeout for image loading
+    onclone: (documentClone) => {
+      // Adjust clone for better rendering
+      const clonedElement = documentClone.querySelector(`#${element.id}`) as HTMLElement;
+      if (clonedElement) {
+        clonedElement.style.transform = 'none';
+        clonedElement.style.boxShadow = 'none';
+      }
+    }
   });
   
-  return canvas.toDataURL("image/png");
+  // Restore original styles
+  element.style.width = originalStyles.width;
+  element.style.height = originalStyles.height;
+  element.style.position = originalStyles.position;
+  element.style.left = originalStyles.left;
+  element.style.top = originalStyles.top;
+  element.style.overflow = originalStyles.overflow;
+  
+  return canvas.toDataURL("image/png", 1.0); // Use maximum quality
 };
 
 // Function to crop an image to passport format (3:4 ratio)

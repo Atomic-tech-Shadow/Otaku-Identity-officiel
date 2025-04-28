@@ -52,8 +52,35 @@ export default function Home() {
         title: "En cours...",
         description: "Génération de votre carte d'identité",
       });
+      
+      // Force all content to be visible before capturing
+      const cardElement = cardRef.current;
+      
+      // Temporarily remove max-height constraints and scrollbars
+      const elementsWithMaxHeight = cardElement.querySelectorAll('.max-h-12, .max-h-14');
+      const originalStyles: Array<{element: Element, maxHeight: string, overflow: string}> = [];
+      
+      elementsWithMaxHeight.forEach(element => {
+        const htmlElement = element as HTMLElement;
+        originalStyles.push({
+          element: htmlElement,
+          maxHeight: htmlElement.style.maxHeight,
+          overflow: htmlElement.style.overflow
+        });
+        
+        htmlElement.style.maxHeight = 'none';
+        htmlElement.style.overflow = 'visible';
+      });
 
+      // Generate image with all content visible
       const dataUrl = await elementToImage(cardRef.current);
+      
+      // Restore original styles
+      originalStyles.forEach(item => {
+        const htmlElement = item.element as HTMLElement;
+        htmlElement.style.maxHeight = item.maxHeight;
+        htmlElement.style.overflow = item.overflow;
+      });
       
       // Create download link
       const link = document.createElement("a");

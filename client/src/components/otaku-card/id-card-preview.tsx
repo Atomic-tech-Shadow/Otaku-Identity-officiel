@@ -16,6 +16,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
     <div className="max-w-xl mx-auto mb-4">
       <div
         ref={cardRef}
+        id="otakuIdCard"
         className="relative rounded-lg overflow-hidden card-shadow card-holographic"
         style={{
           background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)',
