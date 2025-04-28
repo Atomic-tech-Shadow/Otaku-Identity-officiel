@@ -67,6 +67,14 @@
               0 5px 15px -10px rgba(0, 0, 0, 0.3);
 }
 
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .card-shadow {
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
+}
+
 /* Card holographic effect */
 .card-holographic {
   position: relative;

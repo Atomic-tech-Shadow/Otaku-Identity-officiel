@@ -16,9 +16,10 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
     <div className="max-w-xl mx-auto mb-4">
       <div
         ref={cardRef}
-        className="aspect-[1.586/1] relative rounded-lg overflow-hidden card-shadow card-holographic"
+        className="aspect-[2/1.1] relative rounded-lg overflow-hidden card-shadow card-holographic"
         style={{
-          background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)'
+          background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)',
+          maxWidth: '500px'
         }}
       >
         {/* Card corner badges */}
@@ -180,9 +181,16 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 <p className="text-xs text-gray-600 italic max-h-14 overflow-y-auto">
                   La création de cette carte est mise en place par l'organisation Shadow Garden afin d'identifier les otaku. Tout passionné de la culture anime japonaise doit l'avoir, c'est obligatoire.
                 </p>
-                <p className="text-xs font-semibold text-gray-700 mt-0.5">
-                  DG: Cid
-                </p>
+                <div className="flex items-center justify-center mt-1">
+                  <p className="text-xs font-semibold text-gray-700">
+                    DG: Ghost Cid
+                  </p>
+                  <img 
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgNDUiIGhlaWdodD0iMjAiIHdpZHRoPSI0NSI+PHBhdGggZD0iTTIwLDUgQzUwLDUgNTAsNDAgODAsMzAgQzkwLDI1IDg1LDEwIDgwLDE1IEM3NSwyMCA3MCwzNSA2MCwzMCBDNDUsMjAgNDAsMTAgMjUsMTUgQzE1LDE4IDEwLDEwIDE1LDUiIHN0cm9rZT0iIzQ0NEY1QSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz48L3N2Zz4=" 
+                    alt="Signature" 
+                    className="ml-2 opacity-80"
+                  />
+                </div>
               </div>
 
               <div className="flex justify-between mt-auto pt-3">
