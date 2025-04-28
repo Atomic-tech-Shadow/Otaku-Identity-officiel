@@ -45,9 +45,7 @@ export function CardList({ onEditCard, onViewCard }: CardListProps) {
   // Mutation pour supprimer une carte
   const deleteMutation = useMutation({
     mutationFn: async (id: number) => {
-      return apiRequest(`/api/cards/${id}`, {
-        method: "DELETE",
-      });
+      return apiRequest("DELETE", `/api/cards/${id}`);
     },
     onSuccess: () => {
       toast({
