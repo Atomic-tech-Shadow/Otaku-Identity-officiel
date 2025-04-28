@@ -176,9 +176,12 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               </div>
 
               {/* Footer text */}
-              <div className="mt-3 text-center">
-                <p className="text-xs text-gray-600 italic">
-                  Cette carte d'identité atteste de votre passion pour l'univers des animes et des mangas. Montrez-la fièrement.
+              <div className="mt-2 text-center">
+                <p className="text-xs text-gray-600 italic max-h-14 overflow-y-auto">
+                  La création de cette carte est mise en place par l'organisation Shadow Garden afin d'identifier les otaku. Tout passionné de la culture anime japonaise doit l'avoir, c'est obligatoire.
+                </p>
+                <p className="text-xs font-semibold text-gray-700 mt-0.5">
+                  DG: Cid
                 </p>
               </div>
 
