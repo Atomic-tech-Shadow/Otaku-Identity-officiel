@@ -17,29 +17,30 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
       <div
         ref={cardRef}
         id="otakuIdCard"
-        className="relative rounded-lg overflow-hidden card-shadow card-holographic"
+        className="relative rounded-xl overflow-hidden card-shadow card-holographic"
         style={{
-          background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)',
+          background: 'linear-gradient(to bottom, #6aaec1 0%, #6aaec1 20%, #f5f2e6 20%, #f5f2e6 100%)',
           maxWidth: '400px',
           width: '100%',
           height: 'auto',
-          aspectRatio: '1.6/1'
+          aspectRatio: '1.8/1',
+          borderRadius: '16px'
         }}
       >
         {/* Card corner badges */}
-        <div className="card-badge top-2 left-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.5 9H22L16 13.5L18 21L12 17L6 21L8 13.5L2 9H9.5L12 2Z" fill="#3B82F6" fillOpacity="0.6" />
+        <div className="card-badge top-2 left-2 bg-blue-200 shadow-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9H22L16 13.5L18 21L12 17L6 21L8 13.5L2 9H9.5L12 2Z" fill="#3B82F6" fillOpacity="0.7" />
           </svg>
         </div>
-        <div className="card-badge top-2 right-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.6" fill="none" />
-            <path d="M12 6V12L16 14" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.6" />
+        <div className="card-badge top-2 right-2 bg-blue-200 shadow-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.7" fill="none" />
+            <path d="M12 6V12L16 14" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.7" />
           </svg>
         </div>
-        {/* Background Atomic Symbol Watermark */}
-        <div className="absolute right-0 top-1/4 bottom-0 w-2/3 opacity-10 z-10">
+        {/* Background Dragon Watermark */}
+        <div className="absolute right-0 top-1/3 bottom-0 w-2/3 opacity-10 z-10">
           <svg 
             width="100%" 
             height="100%" 
@@ -48,25 +49,19 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             style={{ position: 'absolute', right: 0, top: 0 }}
           >
             <g fill="#666">
-              {/* Electron orbits */}
-              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(0, 150, 150)" />
-              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(60, 150, 150)" />
-              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(120, 150, 150)" />
-              
-              {/* Electrons */}
-              <circle cx="270" cy="150" r="8" />
-              <circle cx="90" cy="195" r="8" />
-              <circle cx="90" cy="105" r="8" />
-              
-              {/* Nucleus */}
-              <circle cx="150" cy="150" r="15" />
+              {/* Stylized Dragon */}
+              <path d="M200,50 C220,60 240,90 230,120 C220,150 180,170 150,180 C120,190 90,210 80,240 C70,270 90,290 110,280 C130,270 140,240 160,230 C180,220 220,240 250,220 C280,200 270,170 250,160 C230,150 190,160 180,140 C170,120 190,100 210,90 C230,80 260,70 270,50 C280,30 260,20 240,30 C220,40 210,60 200,80 C190,100 170,120 150,130 C130,140 100,150 90,130 C80,110 100,90 120,80 C140,70 180,80 190,60 C200,40 180,30 160,40 C140,50 130,80 110,90 C90,100 50,90 40,70 C30,50 60,40 80,50 C100,60 110,90 130,100 C150,110 170,90 160,70" 
+                strokeWidth="8" 
+                stroke="#555" 
+                fill="none" 
+              />
             </g>
           </svg>
         </div>
 
         {/* Card Header */}
         <div className="w-full px-4 pt-2 pb-1 flex justify-center relative z-20">
-          <h2 className="font-['Orbitron'] text-center text-lg font-bold tracking-wider text-gray-800 uppercase">
+          <h2 className="font-['Orbitron'] text-center text-xl font-bold tracking-wider text-gray-900 uppercase">
             Carte d'identité otaku
           </h2>
         </div>
@@ -121,26 +116,26 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             <div className="w-2/3 pl-4 flex flex-col">
               <div className="space-y-1.5">
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
-                    USERNAME:
+                  <p className="text-xs font-bold text-gray-800 w-32">
+                    NOM D'UTILISATEUR:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
+                  <p className="text-xs font-medium text-gray-900 flex-1 truncate">
                     {card.username || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-800 w-32">
                     NOM RÉEL:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
+                  <p className="text-xs font-medium text-gray-900 flex-1 truncate">
                     {card.realName || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
-                    PAYS:
+                  <p className="text-xs font-bold text-gray-800 w-32">
+                    NATIONALITÉ:
                   </p>
-                  <div className="flex items-center gap-1 text-xs font-medium text-gray-800 flex-1">
+                  <div className="flex items-center gap-1 text-xs font-medium text-gray-900 flex-1">
                     {countryData?.flag && (
                       <img 
                         src={countryData.flag} 
@@ -153,27 +148,27 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   </div>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-800 w-32">
                     STATUT:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
+                  <p className="text-xs font-medium text-gray-900 flex-1 truncate">
                     {card.status || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
-                    GENRE:
+                  <p className="text-xs font-bold text-gray-800 w-32">
+                    GENRE PRÉFÉRÉ:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
+                  <p className="text-xs font-medium text-gray-900 flex-1 truncate">
                     {card.genre || "..."}
                   </p>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-xs font-bold text-gray-700 w-full mb-1">
-                    CITATION:
+                  <p className="text-xs font-bold text-gray-800 w-full mb-1">
+                    CITATION FAVORITE:
                   </p>
-                  <div className="bg-gray-50 rounded-sm p-1.5">
-                    <p className="text-xs font-medium text-gray-800 italic break-words max-h-12 overflow-y-auto whitespace-pre-wrap">
+                  <div className="bg-transparent rounded-sm p-1">
+                    <p className="text-xs font-medium text-gray-900 italic break-words max-h-12 overflow-y-auto whitespace-pre-wrap">
                       {card.quote || "..."}
                     </p>
                   </div>
