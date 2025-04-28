@@ -119,15 +119,15 @@
 /* Badge styling for card corners */
 .card-badge {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(191, 219, 254, 0.7);
+  background-color: rgba(191, 219, 254, 0.8);
   border-radius: 50%;
   z-index: 20;
-  box-shadow: inset 0 0 5px rgba(59, 130, 246, 0.5);
+  box-shadow: inset 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 /* Animations for the security pattern */
