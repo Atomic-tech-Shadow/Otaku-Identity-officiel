@@ -24,7 +24,7 @@ export const CardValidationSchema = z.object({
   nationality: z.string().min(1, "La nationalité est requise"),
   status: z.string().min(1, "Le statut est requis"),
   genre: z.string().min(1, "Le genre d'anime préféré est requis"),
-  quote: z.string().min(1, "La citation est requise").max(200),
+  quote: z.string().min(1, "La citation est requise").max(500, "La citation ne peut pas dépasser 500 caractères"),
   photo: z.string().optional(),
   qrCodeEnabled: z.boolean().default(false),
   qrCodeLink: z.string().url("Veuillez saisir une URL valide").optional().or(z.literal("")),

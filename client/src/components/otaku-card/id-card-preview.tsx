@@ -114,28 +114,28 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
 
             {/* Fields */}
             <div className="w-2/3 pl-4 flex flex-col">
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
-                    NOM D'UTILISATEUR:
+                  <p className="text-xs font-bold text-gray-700 w-24">
+                    USERNAME:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1">
+                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
                     {card.username || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
+                  <p className="text-xs font-bold text-gray-700 w-24">
                     NOM RÉEL:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1">
+                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
                     {card.realName || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
-                    NATIONALITÉ:
+                  <p className="text-xs font-bold text-gray-700 w-24">
+                    PAYS:
                   </p>
-                  <div className="flex items-center gap-2 text-xs font-medium text-gray-800 flex-1">
+                  <div className="flex items-center gap-1 text-xs font-medium text-gray-800 flex-1">
                     {countryData?.flag && (
                       <img 
                         src={countryData.flag} 
@@ -144,32 +144,34 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                         style={{ boxShadow: "0 0 1px rgba(0,0,0,0.3)" }}
                       />
                     )}
-                    <span>{countryData?.name || "..."}</span>
+                    <span className="truncate">{countryData?.name || "..."}</span>
                   </div>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
+                  <p className="text-xs font-bold text-gray-700 w-24">
                     STATUT:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1">
+                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
                     {card.status || "..."}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
-                    GENRE PRÉFÉRÉ:
+                  <p className="text-xs font-bold text-gray-700 w-24">
+                    GENRE:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1">
+                  <p className="text-xs font-medium text-gray-800 flex-1 truncate">
                     {card.genre || "..."}
                   </p>
                 </div>
-                <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-36">
-                    CITATION FAVORITE:
+                <div className="flex flex-col">
+                  <p className="text-xs font-bold text-gray-700 w-full mb-1">
+                    CITATION:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1 italic">
-                    {card.quote || "..."}
-                  </p>
+                  <div className="bg-gray-50 rounded-sm p-1.5">
+                    <p className="text-xs font-medium text-gray-800 italic break-words max-h-14 overflow-y-auto whitespace-pre-wrap">
+                      {card.quote || "..."}
+                    </p>
+                  </div>
                 </div>
               </div>
 
