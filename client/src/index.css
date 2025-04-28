@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Extra small text size for mobile */
+.text-2xs {
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -16,10 +16,12 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
     <div className="max-w-xl mx-auto mb-4">
       <div
         ref={cardRef}
-        className="aspect-[2/1.1] relative rounded-lg overflow-hidden card-shadow card-holographic"
+        className="relative rounded-lg overflow-hidden card-shadow card-holographic"
         style={{
           background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)',
-          maxWidth: '500px'
+          maxWidth: '500px',
+          height: 'auto',
+          aspectRatio: '16/10'
         }}
       >
         {/* Card corner badges */}
@@ -69,10 +71,10 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
 
         {/* Card Content */}
         <div className="relative z-20 h-full p-4 pt-2 flex flex-col">
-          <div className="flex-1 flex">
-            <div className="w-1/3 pr-2 flex flex-col space-y-3">
+          <div className="flex-1 flex md:flex-row flex-col">
+            <div className="w-full md:w-1/3 pr-0 md:pr-2 flex flex-row md:flex-col justify-start md:space-y-3 space-x-3 md:space-x-0">
               {/* Photo */}
-              <div className="w-full aspect-square bg-white border border-gray-300 rounded overflow-hidden flex items-center justify-center">
+              <div className="w-24 h-24 md:w-full md:h-auto aspect-square bg-white border border-gray-300 rounded overflow-hidden flex items-center justify-center">
                 {card.photo ? (
                   <img
                     src={card.photo}
@@ -86,20 +88,20 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
 
               {/* QR Code */}
               {card.qrCodeEnabled && (
-                <div className="relative w-full aspect-square bg-white border border-gray-300 rounded p-1 flex items-center justify-center">
+                <div className="relative w-24 h-24 md:w-full md:h-auto aspect-square bg-white border border-gray-300 rounded p-1 flex items-center justify-center">
                   {card.qrCodeLink ? (
                     <div className="relative">
                       <QRCodeSVG 
                         value={card.qrCodeLink || "https://example.com"} 
-                        size={80} 
+                        size={70} 
                         bgColor={"#FFFFFF"} 
                         fgColor={"#3B82F6"} 
                         level={"L"} 
                         includeMargin={false}
                       />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="bg-white rounded-full w-5 h-5 flex items-center justify-center">
-                          <div className="bg-[#3B82F6] rounded-full w-3 h-3" />
+                        <div className="bg-white rounded-full w-4 h-4 flex items-center justify-center">
+                          <div className="bg-[#3B82F6] rounded-full w-2.5 h-2.5" />
                         </div>
                       </div>
                     </div>
@@ -114,10 +116,10 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             </div>
 
             {/* Fields */}
-            <div className="w-2/3 pl-4 flex flex-col">
-              <div className="space-y-1.5">
+            <div className="w-full md:w-2/3 pl-0 md:pl-4 flex flex-col mt-4 md:mt-0">
+              <div className="space-y-1">
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-700 w-20 md:w-24">
                     USERNAME:
                   </p>
                   <p className="text-xs font-medium text-gray-800 flex-1 truncate">
@@ -125,7 +127,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-700 w-20 md:w-24">
                     NOM RÉEL:
                   </p>
                   <p className="text-xs font-medium text-gray-800 flex-1 truncate">
@@ -133,7 +135,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-700 w-20 md:w-24">
                     PAYS:
                   </p>
                   <div className="flex items-center gap-1 text-xs font-medium text-gray-800 flex-1">
@@ -149,7 +151,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   </div>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-700 w-20 md:w-24">
                     STATUT:
                   </p>
                   <p className="text-xs font-medium text-gray-800 flex-1 truncate">
@@ -157,7 +159,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="text-xs font-bold text-gray-700 w-24">
+                  <p className="text-xs font-bold text-gray-700 w-20 md:w-24">
                     GENRE:
                   </p>
                   <p className="text-xs font-medium text-gray-800 flex-1 truncate">
@@ -176,38 +178,39 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 </div>
               </div>
 
-              {/* Footer text */}
-              <div className="mt-2 text-center">
-                <p className="text-xs text-gray-600 italic max-h-14 overflow-y-auto">
+              {/* Footer text - Shadow Garden */}
+              <div className="mt-2 text-center border-t border-gray-200 pt-2">
+                <p className="text-2xs md:text-xs text-gray-600 italic max-h-12 overflow-y-auto px-2">
                   La création de cette carte est mise en place par l'organisation Shadow Garden afin d'identifier les otaku. Tout passionné de la culture anime japonaise doit l'avoir, c'est obligatoire.
                 </p>
                 <div className="flex items-center justify-center mt-1">
-                  <p className="text-xs font-semibold text-gray-700">
+                  <p className="text-2xs md:text-xs font-semibold text-gray-700">
                     DG: Ghost Cid
                   </p>
                   <img 
                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgNDUiIGhlaWdodD0iMjAiIHdpZHRoPSI0NSI+PHBhdGggZD0iTTIwLDUgQzUwLDUgNTAsNDAgODAsMzAgQzkwLDI1IDg1LDEwIDgwLDE1IEM3NSwyMCA3MCwzNSA2MCwzMCBDNDUsMjAgNDAsMTAgMjUsMTUgQzE1LDE4IDEwLDEwIDE1LDUiIHN0cm9rZT0iIzQ0NEY1QSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz48L3N2Zz4=" 
                     alt="Signature" 
-                    className="ml-2 opacity-80"
+                    className="ml-2 opacity-80 h-4 md:h-5"
                   />
                 </div>
               </div>
 
-              <div className="flex justify-between mt-auto pt-3">
+              {/* Card info footer */}
+              <div className="flex justify-between mt-auto pt-2">
                 <div>
-                  <p className="text-[10px] text-gray-500 uppercase">
+                  <p className="text-[8px] md:text-[10px] text-gray-500 uppercase">
                     Numéro
                   </p>
-                  <p className="font-['Orbitron'] text-xs font-medium text-primary">
-                    {card.cardNumber || "OTK-2023-00001"}
+                  <p className="font-['Orbitron'] text-[10px] md:text-xs font-medium text-primary">
+                    {card.cardNumber || "OTK-2025-00001"}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[10px] text-gray-500 uppercase">
+                  <p className="text-[8px] md:text-[10px] text-gray-500 uppercase">
                     Date d'émission
                   </p>
-                  <p className="font-['Orbitron'] text-xs font-medium text-gray-700">
-                    {card.issueDate || "01/01/2023"}
+                  <p className="font-['Orbitron'] text-[10px] md:text-xs font-medium text-gray-700">
+                    {card.issueDate || "28/04/2025"}
                   </p>
                 </div>
               </div>
