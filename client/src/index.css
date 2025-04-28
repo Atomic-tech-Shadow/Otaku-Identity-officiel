@@ -76,8 +76,14 @@
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .card-shadow {
-    max-width: 100% !important;
+    max-width: 95% !important;
     margin: 0 auto;
+    font-size: 0.9em;
+  }
+  
+  .card-badge {
+    width: 30px !important;
+    height: 30px !important;
   }
 }
 
