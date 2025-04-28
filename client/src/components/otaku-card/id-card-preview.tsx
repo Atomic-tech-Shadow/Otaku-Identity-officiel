@@ -87,14 +87,21 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               {card.qrCodeEnabled && (
                 <div className="relative w-full aspect-square bg-white border border-gray-300 rounded p-1 flex items-center justify-center">
                   {card.qrCodeLink ? (
-                    <QRCodeSVG 
-                      value={card.qrCodeLink} 
-                      size={80} 
-                      bgColor={"#FFFFFF"} 
-                      fgColor={"#3B82F6"} 
-                      level={"M"} 
-                      includeMargin={false}
-                    />
+                    <div className="relative">
+                      <QRCodeSVG 
+                        value={card.qrCodeLink || "https://example.com"} 
+                        size={80} 
+                        bgColor={"#FFFFFF"} 
+                        fgColor={"#3B82F6"} 
+                        level={"L"} 
+                        includeMargin={false}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="bg-white rounded-full w-5 h-5 flex items-center justify-center">
+                          <div className="bg-[#3B82F6] rounded-full w-3 h-3" />
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center">
                       <div className="bg-[#2563EB] w-16 h-16 opacity-10 rounded"></div>

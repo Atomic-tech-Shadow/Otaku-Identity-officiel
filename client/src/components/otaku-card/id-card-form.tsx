@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Switch } from "@/components/ui/switch";
 import { Download, Upload } from "lucide-react";
-import { animeGenres, countries, otakuStatuses } from "@/lib/utils";
+import { animeGenres, countries, otakuStatuses, cropToPassportFormat, generateCardNumber, formatCurrentDate } from "@/lib/utils";
 import { CardValidationSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { useDropzone } from "react-dropzone";
@@ -49,10 +49,23 @@ export function IdCardForm({ initialCard, onCardChange, onDownload }: IdCardForm
     }
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       const result = e.target?.result as string;
-      setPhotoPreview(result);
-      form.setValue("photo", result);
+      
+      // Recadrer l'image au format passeport (3:4)
+      try {
+        const croppedImage = await cropToPassportFormat(result);
+        setPhotoPreview(croppedImage);
+        form.setValue("photo", croppedImage);
+        toast({
+          title: "Photo recadrée",
+          description: "Votre photo a été automatiquement recadrée au format passeport",
+        });
+      } catch (error) {
+        console.error("Erreur lors du recadrage de l'image:", error);
+        setPhotoPreview(result);
+        form.setValue("photo", result);
+      }
     };
     reader.readAsDataURL(file);
   }, [form, toast]);
