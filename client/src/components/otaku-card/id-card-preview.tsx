@@ -21,7 +21,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           background: 'linear-gradient(to bottom, #82c5d4 0%, #82c5d4 20%, #fbf7ee 20%, #fbf7ee 100%)'
         }}
       >
-        {/* Background Dragon Watermark */}
+        {/* Background Atomic Symbol Watermark */}
         <div className="absolute right-0 top-1/4 bottom-0 w-2/3 opacity-10 z-10">
           <svg 
             width="100%" 
@@ -30,10 +30,20 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             xmlns="http://www.w3.org/2000/svg" 
             style={{ position: 'absolute', right: 0, top: 0 }}
           >
-            <path 
-              fill="#666" 
-              d="M235 120c-5 5-11 8-18 10-15 4-30 3-45 5-10 1-19 4-25 12-4 6-6 13-4 20s7 13 14 17c5 3 11 4 16 4 3 0 6-1 9-1-1 1-2 2-3 2-7 5-14 8-22 10-7 2-15 1-21-3-5-4-8-10-9-16 0-5 2-11 6-15 5-4 10-7 17-8 3-1 7-1 10-1-2-1-5-1-8 0-5 1-9 3-12 6-4 3-6 8-7 13-1 7 2 14 8 19 8 6 18 6 27 3 10-3 19-8 28-14-7 6-14 11-22 15-9 5-18 9-28 11-9 1-18 0-24-6-5-5-7-12-5-19 1-5 4-9 8-12 4-3 10-5 15-6 4-1 9-1 13-1-2 0-4 0-6 0-8 1-17 3-23 10-5 6-8 15-6 23 2 9 9 16 18 20 9 3 20 3 30 0 17-5 31-15 45-26-2 2-5 4-7 5-3 3-7 5-10 7-9 6-18 11-28 15-12 5-25 8-38 7-10-1-20-5-26-14-4-6-6-14-5-22 2-7 7-13 12-18 7-6 15-10 24-12 8-2 17-2 25-1-16 1-33 5-45 16-14 11-19 30-11 46 8 15 25 22 41 24 19 2 37-4 54-12 15-8 29-19 40-32-17 19-39 33-62 42-12 4-24 7-37 8-13 0-28 0-39-7-10-7-16-20-14-33 2-14 11-26 23-32 12-7 26-9 40-7"
-            />
+            <g fill="#666">
+              {/* Electron orbits */}
+              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(0, 150, 150)" />
+              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(60, 150, 150)" />
+              <ellipse cx="150" cy="150" rx="120" ry="45" fill="none" stroke="#666" strokeWidth="2" transform="rotate(120, 150, 150)" />
+              
+              {/* Electrons */}
+              <circle cx="270" cy="150" r="8" />
+              <circle cx="90" cy="195" r="8" />
+              <circle cx="90" cy="105" r="8" />
+              
+              {/* Nucleus */}
+              <circle cx="150" cy="150" r="15" />
+            </g>
           </svg>
         </div>
 
