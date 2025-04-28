@@ -82,3 +82,51 @@ export const elementToImage = async (element: HTMLElement): Promise<string> => {
   
   return canvas.toDataURL("image/png");
 };
+
+// Function to crop an image to passport format (3:4 ratio)
+export const cropToPassportFormat = (imageDataUrl: string): Promise<string> => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      if (!ctx) {
+        resolve(imageDataUrl);
+        return;
+      }
+      
+      // Calculate dimensions for 3:4 aspect ratio (width:height)
+      let targetWidth, targetHeight, sourceX, sourceY;
+      
+      if (img.width / img.height > 3/4) {
+        // Image is wider than 3:4
+        targetHeight = img.height;
+        targetWidth = targetHeight * (3/4);
+        sourceX = (img.width - targetWidth) / 2;
+        sourceY = 0;
+      } else {
+        // Image is taller than 3:4
+        targetWidth = img.width;
+        targetHeight = targetWidth * (4/3);
+        sourceX = 0;
+        sourceY = (img.height - targetHeight) / 2;
+      }
+      
+      // Set canvas size to the target dimensions
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+      
+      // Draw the cropped image
+      ctx.drawImage(
+        img,
+        sourceX, sourceY, targetWidth, targetHeight,
+        0, 0, targetWidth, targetHeight
+      );
+      
+      resolve(canvas.toDataURL('image/jpeg', 0.9));
+    };
+    
+    img.src = imageDataUrl;
+  });
+};

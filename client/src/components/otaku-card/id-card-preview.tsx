@@ -128,9 +128,17 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   <p className="text-xs font-bold text-gray-700 w-36">
                     NATIONALITÉ:
                   </p>
-                  <p className="text-xs font-medium text-gray-800 flex-1">
-                    {countryData?.name || "..."}
-                  </p>
+                  <div className="flex items-center gap-2 text-xs font-medium text-gray-800 flex-1">
+                    {countryData?.flag && (
+                      <img 
+                        src={countryData.flag} 
+                        alt={`Drapeau ${countryData.name}`} 
+                        className="w-4 h-3 object-cover"
+                        style={{ boxShadow: "0 0 1px rgba(0,0,0,0.3)" }}
+                      />
+                    )}
+                    <span>{countryData?.name || "..."}</span>
+                  </div>
                 </div>
                 <div className="flex">
                   <p className="text-xs font-bold text-gray-700 w-36">
