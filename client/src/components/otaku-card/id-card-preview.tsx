@@ -180,11 +180,6 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px' }}>
                   EL CID
                 </p>
-                <div className="mt-1 flex justify-center">
-                  <div className="text-blue-800 italic font-cursive" style={{ fontSize: '10px', fontFamily: 'cursive', letterSpacing: '1px' }}>
-                    signature
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -192,13 +187,18 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           {/* Footer section */}
           <div className="absolute bottom-0 left-0 right-0 p-3">
             <p className="text-gray-700 italic text-center mb-2" style={{ fontSize: '13px' }}>
-              Cette carte d'identité atteste de votre passion pour l'univers des animes et des mangas. Montrez-la fièrement
+              La création de ces cartes sont mises en place par l'organisation Shadow Garden dirigée par El Cid.
             </p>
             <div className="flex justify-between pt-1 border-t border-blue-100">
-              <div>
+              <div className="flex items-end">
                 <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
                   ID: {card.cardNumber || "OTK-2025-00001"}
                 </p>
+                <div className="ml-5 mb-1">
+                  <div className="text-blue-800 italic font-cursive" style={{ fontFamily: 'cursive', fontSize: '16px', letterSpacing: '1px', transform: 'rotate(-5deg)' }}>
+                    Cid Kagenou
+                  </div>
+                </div>
               </div>
               <div className="text-right" style={{ width: '45%' }}>
                 <div className="flex justify-end space-x-3">
