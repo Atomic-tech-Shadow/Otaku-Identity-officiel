@@ -19,29 +19,29 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         id="otakuIdCard"
         className="relative rounded-xl overflow-hidden card-shadow"
         style={{
-          backgroundColor: '#2c3e50',
+          background: 'linear-gradient(to bottom, #86c5da 0%, #5a9bbd 100%)',
           maxWidth: '400px',
           width: '100%',
-          height: '230px',
-          borderRadius: '14px',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
+          height: '250px',
+          borderRadius: '16px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
         }}
       >
         {/* Country Flags in Card corners */}
         {countryData?.flag && (
           <>
-            <div className="absolute top-2 left-2 rounded-md overflow-hidden shadow-md" style={{ width: '32px', height: '22px' }}>
+            <div className="absolute top-2 left-2 rounded-full overflow-hidden shadow-md" style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
-                className="w-full h-full object-cover"
+                className="w-[28px] h-[28px] object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
               />
             </div>
-            <div className="absolute top-2 right-2 rounded-md overflow-hidden shadow-md" style={{ width: '32px', height: '22px' }}>
+            <div className="absolute top-2 right-2 rounded-full overflow-hidden shadow-md" style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
-                className="w-full h-full object-cover"
+                className="w-[28px] h-[28px] object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
               />
             </div>
           </>
@@ -49,17 +49,15 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
 
         {/* Card Header */}
         <div className="w-full px-4 pt-5 pb-2 flex justify-center relative z-20">
-          <h2 className="font-sans text-center text-lg font-extrabold tracking-wider text-white uppercase" style={{
-            textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-          }}>
+          <h2 className="font-serif text-center text-lg font-bold tracking-wider text-black uppercase">
             Carte d'identité otaku
           </h2>
         </div>
 
         {/* White Content Panel */}
-        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg" style={{ maxHeight: '165px', overflow: 'hidden' }}>
+        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg" style={{ maxHeight: '185px', overflow: 'hidden' }}>
           {/* Card Content */}
-          <div className="relative p-3 flex flex-row">
+          <div className="relative p-3 flex flex-row" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M100 15C152.5 15 195 57.5 195 110C195 162.5 152.5 205 100 205C47.5 205 5 162.5 5 110C5 57.5 47.5 15 100 15Z\' fill=\'none\' stroke=\'%23f2f2f25f\' stroke-width=\'1\' /%3E%3C/svg%3E")', backgroundSize: '300px', backgroundPosition: 'center right', backgroundRepeat: 'no-repeat', opacity: 0.8 }}>
             {/* Left Section - Photo and Basic Info */}
             <div className="w-[30%] flex flex-col">
               {/* Photo */}
@@ -76,40 +74,21 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               </div>
               
               {/* Basic Info */}
-              <div className="mt-2 space-y-1">
+              <div className="mt-2 space-y-1.5">
                 <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-blue-700 w-12">
-                    NOM:
-                  </p>
-                  <p className="text-[11px] font-medium text-gray-800 flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                    {card.username || "..."}
+                  <p className="text-[10px] font-bold text-black w-full">
+                    NOM D'UTILISATEUR: <span className="font-normal">{card.username || "..."}</span>
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-blue-700 w-12">
-                    RÉEL:
-                  </p>
-                  <p className="text-[11px] font-medium text-gray-800 flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                    {card.realName || "..."}
+                  <p className="text-[10px] font-bold text-black w-full">
+                    NOM RÉEL: <span className="font-normal">{card.realName || "..."}</span>
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-blue-700 w-12">
-                    PAYS:
+                  <p className="text-[10px] font-bold text-black w-full">
+                    NATIONALITÉ: <span className="font-normal">{countryData?.name || "..."}</span>
                   </p>
-                  <div className="flex items-center gap-1 text-[11px] font-medium text-gray-800 flex-1">
-                    {countryData?.flag && (
-                      <img 
-                        src={countryData.flag} 
-                        alt={`Drapeau ${countryData.name}`} 
-                        className="w-4 h-3 object-cover"
-                        style={{ boxShadow: "0 0 1px rgba(0,0,0,0.3)" }}
-                      />
-                    )}
-                    <span className="overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                      {countryData?.name || "..."}
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -120,36 +99,32 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 {/* Middle Info Section */}
                 <div className="flex-1 space-y-1.5">
                   <div className="flex items-center">
-                    <p className="text-[11px] font-bold text-blue-700 w-16">
-                      STATUT:
-                    </p>
-                    <p className="text-[11px] font-medium text-gray-800 flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                      {card.status || "..."}
+                    <p className="text-[10px] font-bold text-black w-full">
+                      STATUT: <span className="font-normal">{card.status || "..."}</span>
                     </p>
                   </div>
                   <div className="flex items-center">
-                    <p className="text-[11px] font-bold text-blue-700 w-16">
-                      GENRE:
-                    </p>
-                    <p className="text-[11px] font-medium text-gray-800 flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                      {card.genre || "..."}
+                    <p className="text-[10px] font-bold text-black w-full">
+                      GENRE PRÉFÉRÉ: <span className="font-normal">{card.genre || "..."}</span>
                     </p>
                   </div>
                   
-                  {/* Citation - plus compacte */}
-                  <div className="bg-blue-50 p-1 mt-1 max-w-full rounded-md">
-                    <p className="text-[10px] font-medium text-gray-800 italic overflow-hidden" style={{
+                  {/* Citation */}
+                  <div className="mt-1 mb-1">
+                    <p className="text-[10px] font-bold text-black">CITATION FAVORITE:</p>
+                    <p className="text-[10px] font-normal text-gray-800 italic" style={{
                       maxHeight: '30px',
                       textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden'
                     }}>
                       "{card.quote || "..."}"
                     </p>
                   </div>
                   
                   <div className="mt-1 text-center">
-                    <p className="text-[9px] text-gray-700 italic">
-                      Passeport Otaku officiel
+                    <p className="text-[8px] text-gray-700 italic">
+                      Cette carte d'identité atteste de votre passion pour l'univers des animes et des mangas. Montrez-la fièrement
                     </p>
                   </div>
                 </div>
@@ -182,11 +157,11 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                       )}
                     </div>
                   )}
-                  <div className="mt-1 text-center bg-gradient-to-r from-blue-200 to-blue-100 rounded p-1 w-full shadow-sm">
-                    <p className="text-[9px] font-bold text-gray-800">
+                  <div className="mt-1 text-center bg-gradient-to-r from-blue-200 to-blue-100 rounded p-0.5 w-full shadow-sm">
+                    <p className="text-[8px] font-bold text-blue-700">
                       SHADOW GARDEN
                     </p>
-                    <p className="text-[8px] font-medium text-blue-600">
+                    <p className="text-[7px] font-medium text-blue-500">
                       QUARTIER GÉNÉRAL
                     </p>
                   </div>
