@@ -72,7 +72,13 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         {/* White Content Panel */}
         <div className="relative z-20 mx-4 mt-2 mb-4 bg-white shadow-lg rounded-md" style={{ height: '380px', overflow: 'hidden' }}>
           {/* Card Content */}
-          <div className="relative p-4 flex" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M100 15C152.5 15 195 57.5 195 110C195 162.5 152.5 205 100 205C47.5 205 5 162.5 5 110C5 57.5 47.5 15 100 15Z\' fill=\'none\' stroke=\'%23f2f2f25f\' stroke-width=\'1\' /%3E%3C/svg%3E")', backgroundSize: '500px', backgroundPosition: 'right center', backgroundRepeat: 'no-repeat', opacity: 0.8 }}>
+          <div className="relative p-4 flex" style={{ 
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='260' height='260' viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f0f8ff50' stroke-width='1.5'%3E%3Ccircle cx='130' cy='130' r='100' /%3E%3Ccircle cx='130' cy='130' r='70' /%3E%3Ccircle cx='130' cy='130' r='40' /%3E%3Cpath d='M130 30L130 230' /%3E%3Cpath d='M30 130L230 130' /%3E%3Cpath d='M72 72L188 188' /%3E%3Cpath d='M188 72L72 188' /%3E%3Ccircle cx='130' cy='30' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='30' cy='130' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='230' cy='130' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='130' cy='230' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='72' cy='72' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='188' cy='72' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='72' cy='188' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='188' cy='188' r='8' fill='%23e6f1ff50' /%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '400px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.9
+          }}>
             
             {/* Left Side - Photo */}
             <div className="flex-shrink-0 mr-8">
