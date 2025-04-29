@@ -20,9 +20,9 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         className="relative rounded-xl overflow-hidden card-shadow"
         style={{
           background: 'linear-gradient(to bottom, #86c5da 0%, #5a9bbd 100%)',
-          maxWidth: '400px',
+          maxWidth: '100%',
           width: '100%',
-          height: '250px',
+          height: '280px',
           borderRadius: '16px',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
         }}
@@ -55,7 +55,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         </div>
 
         {/* White Content Panel */}
-        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg" style={{ maxHeight: '185px', overflow: 'hidden' }}>
+        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg" style={{ maxHeight: '210px', overflow: 'hidden' }}>
           {/* Card Content */}
           <div className="relative p-3 flex flex-row" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M100 15C152.5 15 195 57.5 195 110C195 162.5 152.5 205 100 205C47.5 205 5 162.5 5 110C5 57.5 47.5 15 100 15Z\' fill=\'none\' stroke=\'%23f2f2f25f\' stroke-width=\'1\' /%3E%3C/svg%3E")', backgroundSize: '300px', backgroundPosition: 'center right', backgroundRepeat: 'no-repeat', opacity: 0.8 }}>
             {/* Left Section - Photo and Basic Info */}
@@ -74,20 +74,29 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               </div>
               
               {/* Basic Info */}
-              <div className="mt-2 space-y-1.5">
+              <div className="mt-2 space-y-2">
                 <div className="flex items-center">
-                  <p className="text-[10px] font-bold text-black w-full">
-                    NOM D'UTILISATEUR: <span className="font-normal">{card.username || "..."}</span>
+                  <p className="text-[11px] font-bold text-black w-36">
+                    NOM D'UTILISATEUR:
+                  </p>
+                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                    {card.username || "..."}
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <p className="text-[10px] font-bold text-black w-full">
-                    NOM RÉEL: <span className="font-normal">{card.realName || "..."}</span>
+                  <p className="text-[11px] font-bold text-black w-36">
+                    NOM RÉEL:
+                  </p>
+                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                    {card.realName || "..."}
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <p className="text-[10px] font-bold text-black w-full">
-                    NATIONALITÉ: <span className="font-normal">{countryData?.name || "..."}</span>
+                  <p className="text-[11px] font-bold text-black w-36">
+                    NATIONALITÉ:
+                  </p>
+                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                    {countryData?.name || "..."}
                   </p>
                 </div>
               </div>
@@ -99,24 +108,31 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 {/* Middle Info Section */}
                 <div className="flex-1 space-y-1.5">
                   <div className="flex items-center">
-                    <p className="text-[10px] font-bold text-black w-full">
-                      STATUT: <span className="font-normal">{card.status || "..."}</span>
+                    <p className="text-[11px] font-bold text-black w-36">
+                      STATUT:
+                    </p>
+                    <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                      {card.status || "..."}
                     </p>
                   </div>
                   <div className="flex items-center">
-                    <p className="text-[10px] font-bold text-black w-full">
-                      GENRE PRÉFÉRÉ: <span className="font-normal">{card.genre || "..."}</span>
+                    <p className="text-[11px] font-bold text-black w-36">
+                      GENRE PRÉFÉRÉ:
+                    </p>
+                    <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+                      {card.genre || "..."}
                     </p>
                   </div>
                   
                   {/* Citation */}
-                  <div className="mt-1 mb-1">
-                    <p className="text-[10px] font-bold text-black">CITATION FAVORITE:</p>
-                    <p className="text-[10px] font-normal text-gray-800 italic" style={{
-                      maxHeight: '30px',
+                  <div className="flex items-start mt-2">
+                    <p className="text-[11px] font-bold text-black w-36">
+                      CITATION FAVORITE:
+                    </p>
+                    <p className="text-[11px] font-normal text-black italic flex-1 overflow-hidden" style={{
+                      maxHeight: '40px',
                       textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden'
+                      whiteSpace: 'normal'
                     }}>
                       "{card.quote || "..."}"
                     </p>
