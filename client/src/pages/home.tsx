@@ -6,7 +6,7 @@ import { IdCardPreview } from "@/components/otaku-card/id-card-preview";
 import { CardList } from "@/components/otaku-card/card-list";
 import { SaveCardButton } from "@/components/otaku-card/save-card-button";
 import { OtakuIdCard, IdCard } from "@/types/id-card";
-import { elementToImage, formatCurrentDate, generateCardNumber } from "@/lib/utils";
+import { elementToImage, formatCurrentDate, generateCardNumber, calculateExpiryDate } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Download } from "lucide-react";
@@ -27,6 +27,7 @@ export default function Home() {
     qrCodeLink: "",
     cardNumber: generateCardNumber(),
     issueDate: formatCurrentDate(),
+    expiryDate: calculateExpiryDate(formatCurrentDate()),
     cardColor: "#3d6cb3", // Bleu officiel des cartes d'identité
     textColor: "#000000",
     backgroundColor: "#f8f6e9", // Couleur beige-crème similaire aux cartes d'identité officielles
@@ -135,6 +136,7 @@ export default function Home() {
       qrCodeLink: "",
       cardNumber: generateCardNumber(),
       issueDate: formatCurrentDate(),
+      expiryDate: calculateExpiryDate(formatCurrentDate()),
     });
   };
 

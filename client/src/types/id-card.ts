@@ -11,6 +11,7 @@ export interface OtakuIdCard {
   qrCodeLink?: string;
   cardNumber?: string;
   issueDate?: string;
+  expiryDate?: string;
   // Options de personnalisation
   cardColor?: string;
   textColor?: string;

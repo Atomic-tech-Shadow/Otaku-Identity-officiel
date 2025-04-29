@@ -24,6 +24,27 @@ export function formatCurrentDate(): string {
   ).toString().padStart(2, "0")}/${today.getFullYear()}`;
 }
 
+export function calculateExpiryDate(issueDateStr: string): string {
+  // Format attendu: DD/MM/YYYY
+  const parts = issueDateStr.split('/');
+  if (parts.length !== 3) {
+    return ''; // Date invalide
+  }
+  
+  // Construire la date (month est 0-based dans JavaScript)
+  const issueDate = new Date(
+    parseInt(parts[2]), // année
+    parseInt(parts[1]) - 1, // mois (0-11)
+    parseInt(parts[0]) // jour
+  );
+  
+  // Ajouter 1 an
+  issueDate.setFullYear(issueDate.getFullYear() + 1);
+  
+  // Formater la nouvelle date
+  return `${String(issueDate.getDate()).padStart(2, '0')}/${String(issueDate.getMonth() + 1).padStart(2, '0')}/${issueDate.getFullYear()}`;
+}
+
 export const countries = {
   fr: { name: "France", flag: "https://flagcdn.com/fr.svg" },
   jp: { name: "Japon", flag: "https://flagcdn.com/jp.svg" },
