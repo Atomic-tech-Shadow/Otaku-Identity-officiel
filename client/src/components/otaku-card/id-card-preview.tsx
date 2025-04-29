@@ -23,22 +23,22 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           maxWidth: '100%',
           width: '860px',
           height: '540px',
-          borderRadius: '0px',
+          borderRadius: '8px', // rayon ~3mm (8px)
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-          aspectRatio: '1.59/1' // Format ID-1 standard
+          aspectRatio: '1.586/1' // Format ID-1 standard exact
         }}
       >
         {/* Country Flags in Card corners */}
         {countryData?.flag && (
           <>
-            <div className="absolute top-6 left-6 overflow-hidden shadow-md" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 left-6 overflow-hidden shadow-md rounded-sm" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute top-6 right-6 overflow-hidden shadow-md" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 right-6 overflow-hidden shadow-md rounded-sm" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
@@ -56,13 +56,13 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         </div>
 
         {/* White Content Panel */}
-        <div className="relative z-20 mx-8 mt-4 mb-8 bg-white shadow-lg" style={{ maxHeight: '400px', overflow: 'hidden' }}>
+        <div className="relative z-20 mx-8 mt-4 mb-8 bg-white shadow-lg rounded-md" style={{ maxHeight: '400px', overflow: 'hidden' }}>
           {/* Card Content */}
           <div className="relative p-3 flex flex-row" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M100 15C152.5 15 195 57.5 195 110C195 162.5 152.5 205 100 205C47.5 205 5 162.5 5 110C5 57.5 47.5 15 100 15Z\' fill=\'none\' stroke=\'%23f2f2f25f\' stroke-width=\'1\' /%3E%3C/svg%3E")', backgroundSize: '300px', backgroundPosition: 'center right', backgroundRepeat: 'no-repeat', opacity: 0.8 }}>
             {/* Left Section - Photo and Basic Info */}
             <div className="w-[30%] flex flex-col">
               {/* Photo */}
-              <div style={{ width: '180px', height: '220px' }} className="bg-white border-2 border-blue-300 overflow-hidden flex items-center justify-center shadow-md">
+              <div style={{ width: '180px', height: '220px' }} className="bg-white border-2 border-blue-300 rounded-md overflow-hidden flex items-center justify-center shadow-md">
                 {card.photo ? (
                   <img
                     src={card.photo}
@@ -135,7 +135,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 {/* QR Code Section */}
                 <div className="flex flex-col items-center">
                   {card.qrCodeEnabled && (
-                    <div className="bg-white border-2 border-blue-300 p-1 flex items-center justify-center shadow-md" style={{width: '150px', height: '150px'}}>
+                    <div className="bg-white border-2 border-blue-300 rounded-md p-1 flex items-center justify-center shadow-md" style={{width: '150px', height: '150px'}}>
                       {card.qrCodeLink ? (
                         <div className="relative">
                           <QRCodeSVG 
@@ -160,7 +160,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                       )}
                     </div>
                   )}
-                  <div className="mt-3 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm">
+                  <div className="mt-3 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm rounded-sm">
                     <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>
                       SHADOW GARDEN
                     </p>
