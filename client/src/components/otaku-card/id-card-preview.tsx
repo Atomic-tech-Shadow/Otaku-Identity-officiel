@@ -46,14 +46,14 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         {/* Country Flags in Card corners */}
         {countryData?.flag && (
           <>
-            <div className="absolute top-6 left-6 overflow-hidden shadow-md rounded-sm" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 left-6 overflow-hidden shadow-md rounded-sm" style={{ width: '60px', height: '42px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute top-6 right-6 overflow-hidden shadow-md rounded-sm" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 right-6 overflow-hidden shadow-md rounded-sm" style={{ width: '60px', height: '42px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
@@ -173,7 +173,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   )}
                 </div>
               )}
-              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm rounded-sm">
+              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-5/6 mx-auto shadow-sm rounded-sm">
                 <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>
                   SHADOW GARDEN
                 </p>
