@@ -31,18 +31,18 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         {/* Country Flags in Card corners */}
         {countryData?.flag && (
           <>
-            <div className="absolute top-6 left-6 rounded-full overflow-hidden shadow-md" style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 left-6 overflow-hidden shadow-md" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
-                className="w-[28px] h-[28px] object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute top-6 right-6 rounded-full overflow-hidden shadow-md" style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 right-6 overflow-hidden shadow-md" style={{ width: '40px', height: '28px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
-                className="w-[28px] h-[28px] object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                className="w-full h-full object-cover"
               />
             </div>
           </>
