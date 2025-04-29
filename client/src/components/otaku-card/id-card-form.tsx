@@ -345,6 +345,118 @@ export function IdCardForm({ initialCard, onCardChange, onDownload }: IdCardForm
             </>
           )}
 
+          {/* Customization Options */}
+          <div className="mt-8 border-t pt-6">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+              Personnalisation de la carte
+            </h3>
+            
+            {/* Card Color */}
+            <FormField
+              control={form.control}
+              name="cardColor"
+              render={({ field }) => (
+                <FormItem className="mb-4">
+                  <FormLabel>Couleur de la carte</FormLabel>
+                  <FormControl>
+                    <div className="flex items-center space-x-2">
+                      <input 
+                        type="color" 
+                        className="w-12 h-8 border rounded cursor-pointer" 
+                        value={field.value || "#5a9bbd"} 
+                        onChange={field.onChange} 
+                      />
+                      <Input 
+                        type="text" 
+                        value={field.value || "#5a9bbd"} 
+                        onChange={field.onChange} 
+                        className="w-24" 
+                      />
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => field.onChange("#5a9bbd")}
+                      >
+                        Défaut
+                      </Button>
+                    </div>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            
+            {/* Text Color */}
+            <FormField
+              control={form.control}
+              name="textColor"
+              render={({ field }) => (
+                <FormItem className="mb-4">
+                  <FormLabel>Couleur du texte</FormLabel>
+                  <FormControl>
+                    <div className="flex items-center space-x-2">
+                      <input 
+                        type="color" 
+                        className="w-12 h-8 border rounded cursor-pointer" 
+                        value={field.value || "#000000"} 
+                        onChange={field.onChange} 
+                      />
+                      <Input 
+                        type="text" 
+                        value={field.value || "#000000"} 
+                        onChange={field.onChange} 
+                        className="w-24" 
+                      />
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => field.onChange("#000000")}
+                      >
+                        Défaut
+                      </Button>
+                    </div>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            
+            {/* Background Color */}
+            <FormField
+              control={form.control}
+              name="backgroundColor"
+              render={({ field }) => (
+                <FormItem className="mb-4">
+                  <FormLabel>Couleur du fond</FormLabel>
+                  <FormControl>
+                    <div className="flex items-center space-x-2">
+                      <input 
+                        type="color" 
+                        className="w-12 h-8 border rounded cursor-pointer" 
+                        value={field.value || "#FFFFFF"} 
+                        onChange={field.onChange} 
+                      />
+                      <Input 
+                        type="text" 
+                        value={field.value || "#FFFFFF"} 
+                        onChange={field.onChange} 
+                        className="w-24" 
+                      />
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => field.onChange("#FFFFFF")}
+                      >
+                        Défaut
+                      </Button>
+                    </div>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
+          
           {/* Download Button */}
           <div className="pt-4">
             <Button

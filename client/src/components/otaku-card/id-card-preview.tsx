@@ -30,7 +30,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         id="otakuIdCard"
         className="relative overflow-hidden card-shadow" 
         style={{
-          background: 'linear-gradient(to right, #86c5da 0%, #5a9bbd 100%)',
+          background: `linear-gradient(to right, ${card.cardColor}99 0%, ${card.cardColor} 100%)`,
           width: '860px', 
           height: '540px',
           borderRadius: '8px', // rayon ~3mm (8px)
@@ -39,7 +39,8 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
-          minWidth: '860px' // Force l'élément à avoir au moins cette largeur
+          minWidth: '860px', // Force l'élément à avoir au moins cette largeur
+          color: card.textColor || '#000000'
         }}
       >
         {/* Country Flags in Card corners */}
@@ -70,7 +71,11 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         </div>
 
         {/* White Content Panel */}
-        <div className="relative z-20 mx-4 mt-2 mb-4 bg-white shadow-lg rounded-md" style={{ height: '380px', overflow: 'hidden' }}>
+        <div className="relative z-20 mx-4 mt-2 mb-4 shadow-lg rounded-md" style={{ 
+          height: '380px', 
+          overflow: 'hidden',
+          backgroundColor: card.backgroundColor || '#FFFFFF' 
+        }}>
           {/* Card Content */}
           <div className="relative p-4 flex" style={{ 
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='260' height='260' viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f0f8ff50' stroke-width='1.5'%3E%3Ccircle cx='130' cy='130' r='100' /%3E%3Ccircle cx='130' cy='130' r='70' /%3E%3Ccircle cx='130' cy='130' r='40' /%3E%3Cpath d='M130 30L130 230' /%3E%3Cpath d='M30 130L230 130' /%3E%3Cpath d='M72 72L188 188' /%3E%3Cpath d='M188 72L72 188' /%3E%3Ccircle cx='130' cy='30' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='30' cy='130' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='230' cy='130' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='130' cy='230' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='72' cy='72' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='188' cy='72' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='72' cy='188' r='8' fill='%23e6f1ff50' /%3E%3Ccircle cx='188' cy='188' r='8' fill='%23e6f1ff50' /%3E%3C/g%3E%3C/svg%3E")`,
@@ -98,41 +103,42 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             {/* Middle section - Information */}
             <div className="flex-grow space-y-3 pr-4">
               <div>
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">NOM D'UTILISATEUR:</span> {card.username || "..."}
                 </p>
               </div>
               <div>
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">NOM RÉEL:</span> {card.realName || "..."}
                 </p>
               </div>
               <div>
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">NATIONALITÉ:</span> {countryData?.name || "..."}
                 </p>
               </div>
               <div>
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">STATUT:</span> {card.status || "..."}
                 </p>
               </div>
               <div>
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">GENRE PRÉFÉRÉ:</span> {card.genre || "..."}
                 </p>
               </div>
               
               {/* Citation */}
               <div className="mt-4">
-                <p className="text-black" style={{ fontSize: '16px' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">CITATION FAVORITE:</span>
                 </p>
-                <p className="text-black italic ml-1 overflow-hidden" style={{
+                <p className="italic ml-1 overflow-hidden" style={{
                   fontSize: '15px',
                   maxHeight: '60px',
                   textOverflow: 'ellipsis',
-                  whiteSpace: 'normal'
+                  whiteSpace: 'normal',
+                  color: card.textColor || '#000000'
                 }}>
                   "{card.quote || "..."}"
                 </p>

@@ -27,6 +27,9 @@ export default function Home() {
     qrCodeLink: "",
     cardNumber: generateCardNumber(),
     issueDate: formatCurrentDate(),
+    cardColor: "#5a9bbd",
+    textColor: "#000000",
+    backgroundColor: "#FFFFFF",
   });
   const [editingCard, setEditingCard] = useState<IdCard | null>(null);
 
