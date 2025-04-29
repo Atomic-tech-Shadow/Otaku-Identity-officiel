@@ -57,10 +57,8 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           </h2>
         </div>
 
-        {/* White Content Panel with Gradient Overlay */}
-        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg overflow-hidden" style={{
-          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)'
-        }}>
+        {/* White Content Panel */}
+        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Card Content */}
           <div className="relative p-3 flex flex-row">
             {/* Left Section - Photo and Basic Info */}
