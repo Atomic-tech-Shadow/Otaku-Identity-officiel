@@ -24,7 +24,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
   }, [cardRef]);
 
   return (
-    <div className="max-w-4xl mx-auto mb-4">
+    <div className="w-full mx-auto mb-4 overflow-auto">
       <div
         ref={cardRef}
         id="otakuIdCard"
@@ -37,7 +37,9 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
           aspectRatio: '1.586/1', // Format ID-1 standard exact
           margin: '0 auto',
-          transform: 'rotate(0deg)' // Forcer l'orientation horizontale
+          display: 'flex',
+          flexDirection: 'column',
+          minWidth: '860px' // Force l'élément à avoir au moins cette largeur
         }}
       >
         {/* Country Flags in Card corners */}

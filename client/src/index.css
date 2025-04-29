@@ -75,15 +75,25 @@
 
 /* Mobile optimizations */
 @media (max-width: 640px) {
+  #otakuIdCard {
+    transform: scale(0.45) !important;
+    transform-origin: left top !important;
+    margin: 0 !important;
+  }
+  
   .card-shadow {
-    max-width: 95% !important;
-    margin: 0 auto;
     font-size: 0.9em;
   }
   
   .card-badge {
     width: 30px !important;
     height: 30px !important;
+  }
+  
+  /* Ajout d'une zone de défilement autour de la carte pour le mobile */
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    max-height: 300px;
   }
 }
 
