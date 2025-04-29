@@ -29,7 +29,7 @@ export default function Home() {
     issueDate: formatCurrentDate(),
     cardColor: "#5a9bbd",
     textColor: "#000000",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#f8f6e9", // Couleur beige-crème similaire aux cartes d'identité officielles
   });
   const [editingCard, setEditingCard] = useState<IdCard | null>(null);
 
