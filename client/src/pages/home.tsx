@@ -27,7 +27,7 @@ export default function Home() {
     qrCodeLink: "",
     cardNumber: generateCardNumber(),
     issueDate: formatCurrentDate(),
-    cardColor: "#5a9bbd",
+    cardColor: "#3d6cb3", // Bleu officiel des cartes d'identité
     textColor: "#000000",
     backgroundColor: "#f8f6e9", // Couleur beige-crème similaire aux cartes d'identité officielles
   });

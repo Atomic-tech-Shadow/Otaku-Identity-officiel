@@ -363,12 +363,12 @@ export function IdCardForm({ initialCard, onCardChange, onDownload }: IdCardForm
                       <input 
                         type="color" 
                         className="w-12 h-8 border rounded cursor-pointer" 
-                        value={field.value || "#5a9bbd"} 
+                        value={field.value || "#3d6cb3"} 
                         onChange={field.onChange} 
                       />
                       <Input 
                         type="text" 
-                        value={field.value || "#5a9bbd"} 
+                        value={field.value || "#3d6cb3"} 
                         onChange={field.onChange} 
                         className="w-24" 
                       />
@@ -376,7 +376,7 @@ export function IdCardForm({ initialCard, onCardChange, onDownload }: IdCardForm
                         type="button" 
                         variant="outline" 
                         size="sm" 
-                        onClick={() => field.onChange("#5a9bbd")}
+                        onClick={() => field.onChange("#3d6cb3")}
                       >
                         Défaut
                       </Button>
