@@ -168,6 +168,14 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                 <p className="font-medium text-blue-500" style={{ fontSize: '12px' }}>
                   QUARTIER GÉNÉRAL
                 </p>
+                <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px' }}>
+                  EL CID
+                </p>
+                <div className="mt-1 flex justify-center">
+                  <div className="text-blue-800 italic font-cursive" style={{ fontSize: '10px', fontFamily: 'cursive', letterSpacing: '1px' }}>
+                    signature
+                  </div>
+                </div>
               </div>
             </div>
           </div>
