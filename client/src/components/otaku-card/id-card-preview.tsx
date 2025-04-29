@@ -173,13 +173,21 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   )}
                 </div>
               )}
-              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-4/6 mx-auto shadow-sm rounded-sm">
+              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm rounded-sm">
                 <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>
-                  SHADOW GARDEN <span className="font-medium text-blue-500" style={{ fontSize: '12px' }}>QUARTIER GÉNÉRAL</span>
+                  SHADOW GARDEN
+                </p>
+                <p className="font-medium text-blue-500" style={{ fontSize: '12px' }}>
+                  QUARTIER GÉNÉRAL
                 </p>
                 <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px' }}>
                   EL CID
                 </p>
+                <div className="mt-1 flex justify-center">
+                  <div className="text-blue-800 italic font-cursive" style={{ fontSize: '10px', fontFamily: 'cursive', letterSpacing: '1px' }}>
+                    signature
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -187,28 +195,21 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
           {/* Footer section */}
           <div className="absolute bottom-0 left-0 right-0 p-3">
             <p className="text-gray-700 italic text-center mb-2" style={{ fontSize: '13px' }}>
-              La création de ces cartes sont mises en place par l'organisation Shadow Garden dirigée par El Cid.
+              Cette carte d'identité atteste de votre passion pour l'univers des animes et des mangas. Montrez-la fièrement
             </p>
             <div className="flex justify-between pt-1 border-t border-blue-100">
-              <div className="flex items-end">
+              <div>
                 <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
                   ID: {card.cardNumber || "OTK-2025-00001"}
                 </p>
-                <div className="ml-5 mb-1">
-                  <div className="text-blue-800 italic font-cursive" style={{ fontFamily: 'cursive', fontSize: '16px', letterSpacing: '1px', transform: 'rotate(-5deg)' }}>
-                    Cid Kagenou
-                  </div>
-                </div>
               </div>
-              <div className="text-right" style={{ width: '45%' }}>
-                <div className="flex justify-end space-x-3">
-                  <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
-                    Date: {card.issueDate || "28/04/2025"}
-                  </p>
-                  <p className="font-medium text-red-600 uppercase" style={{ fontSize: '14px' }}>
-                    Exp: {card.expiryDate || "28/04/2026"}
-                  </p>
-                </div>
+              <div className="text-right flex flex-col">
+                <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
+                  Date: {card.issueDate || "28/04/2025"}
+                </p>
+                <p className="font-medium text-red-600 uppercase" style={{ fontSize: '14px' }}>
+                  Exp: {card.expiryDate || "28/04/2026"}
+                </p>
               </div>
             </div>
           </div>
