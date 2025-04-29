@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { User } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import { OtakuIdCard } from '@/types/id-card';
@@ -11,21 +11,33 @@ interface IdCardPreviewProps {
 
 export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
   const countryData = card.nationality ? countries[card.nationality as keyof typeof countries] : null;
+  
+  useEffect(() => {
+    // Forcer l'affichage horizontal de la carte sur mobile
+    if (cardRef.current) {
+      cardRef.current.style.width = '860px';
+      cardRef.current.style.height = '540px';
+      cardRef.current.style.maxWidth = '100%';
+      cardRef.current.style.maxHeight = '100%';
+      cardRef.current.style.aspectRatio = '1.586/1';
+    }
+  }, [cardRef]);
 
   return (
-    <div className="max-w-xl mx-auto mb-4">
+    <div className="max-w-4xl mx-auto mb-4">
       <div
         ref={cardRef}
         id="otakuIdCard"
-        className="relative overflow-hidden card-shadow"
+        className="relative overflow-hidden card-shadow" 
         style={{
-          background: 'linear-gradient(to bottom, #86c5da 0%, #5a9bbd 100%)',
-          maxWidth: '100%',
-          width: '860px',
+          background: 'linear-gradient(to right, #86c5da 0%, #5a9bbd 100%)',
+          width: '860px', 
           height: '540px',
           borderRadius: '8px', // rayon ~3mm (8px)
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-          aspectRatio: '1.586/1' // Format ID-1 standard exact
+          aspectRatio: '1.586/1', // Format ID-1 standard exact
+          margin: '0 auto',
+          transform: 'rotate(0deg)' // Forcer l'orientation horizontale
         }}
       >
         {/* Country Flags in Card corners */}
