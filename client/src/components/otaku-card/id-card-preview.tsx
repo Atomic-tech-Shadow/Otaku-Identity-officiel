@@ -203,9 +203,12 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   ID: {card.cardNumber || "OTK-2025-00001"}
                 </p>
               </div>
-              <div className="text-right">
+              <div className="text-right flex flex-col">
                 <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
                   Date: {card.issueDate || "28/04/2025"}
+                </p>
+                <p className="font-medium text-red-600 uppercase" style={{ fontSize: '14px' }}>
+                  Exp: {card.expiryDate || "28/04/2026"}
                 </p>
               </div>
             </div>
