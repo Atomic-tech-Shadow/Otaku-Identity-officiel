@@ -75,28 +75,19 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               
               {/* Basic Info */}
               <div className="mt-2 space-y-2">
-                <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-black w-36">
-                    NOM D'UTILISATEUR:
-                  </p>
-                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                    {card.username || "..."}
+                <div>
+                  <p className="text-[11px] text-black">
+                    <span className="font-bold">NOM:</span> {card.username || "..."}
                   </p>
                 </div>
-                <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-black w-36">
-                    NOM RÉEL:
-                  </p>
-                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                    {card.realName || "..."}
+                <div>
+                  <p className="text-[11px] text-black">
+                    <span className="font-bold">NOM RÉEL:</span> {card.realName || "..."}
                   </p>
                 </div>
-                <div className="flex items-center">
-                  <p className="text-[11px] font-bold text-black w-36">
-                    NATIONALITÉ:
-                  </p>
-                  <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                    {countryData?.name || "..."}
+                <div>
+                  <p className="text-[11px] text-black">
+                    <span className="font-bold">NATIONALITÉ:</span> {countryData?.name || "..."}
                   </p>
                 </div>
               </div>
@@ -107,29 +98,23 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
               <div className="flex space-x-4">
                 {/* Middle Info Section */}
                 <div className="flex-1 space-y-1.5">
-                  <div className="flex items-center">
-                    <p className="text-[11px] font-bold text-black w-36">
-                      STATUT:
-                    </p>
-                    <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                      {card.status || "..."}
+                  <div>
+                    <p className="text-[11px] text-black">
+                      <span className="font-bold">STATUT:</span> {card.status || "..."}
                     </p>
                   </div>
-                  <div className="flex items-center">
-                    <p className="text-[11px] font-bold text-black w-36">
-                      GENRE PRÉFÉRÉ:
-                    </p>
-                    <p className="text-[11px] font-normal text-black flex-1 overflow-hidden" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
-                      {card.genre || "..."}
+                  <div>
+                    <p className="text-[11px] text-black">
+                      <span className="font-bold">GENRE:</span> {card.genre || "..."}
                     </p>
                   </div>
                   
                   {/* Citation */}
-                  <div className="flex items-start mt-2">
-                    <p className="text-[11px] font-bold text-black w-36">
-                      CITATION FAVORITE:
+                  <div className="mt-1">
+                    <p className="text-[11px] text-black">
+                      <span className="font-bold">CITATION FAVORITE:</span>
                     </p>
-                    <p className="text-[11px] font-normal text-black italic flex-1 overflow-hidden" style={{
+                    <p className="text-[11px] text-black italic ml-1 overflow-hidden" style={{
                       maxHeight: '40px',
                       textOverflow: 'ellipsis',
                       whiteSpace: 'normal'
