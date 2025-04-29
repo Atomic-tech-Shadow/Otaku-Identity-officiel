@@ -46,14 +46,14 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         {/* Country Flags in Card corners */}
         {countryData?.flag && (
           <>
-            <div className="absolute top-6 left-6 overflow-hidden shadow-md rounded-sm" style={{ width: '60px', height: '42px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 left-6 overflow-hidden shadow-md rounded-sm" style={{ width: '75px', height: '55px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute top-6 right-6 overflow-hidden shadow-md rounded-sm" style={{ width: '60px', height: '42px', background: 'rgba(255,255,255,0.8)' }}>
+            <div className="absolute top-6 right-6 overflow-hidden shadow-md rounded-sm" style={{ width: '75px', height: '55px', background: 'rgba(255,255,255,0.8)' }}>
               <img 
                 src={countryData.flag} 
                 alt={`Drapeau ${countryData.name}`} 
@@ -173,12 +173,9 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   )}
                 </div>
               )}
-              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-5/6 mx-auto shadow-sm rounded-sm">
+              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-4/6 mx-auto shadow-sm rounded-sm">
                 <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>
-                  SHADOW GARDEN
-                </p>
-                <p className="font-medium text-blue-500" style={{ fontSize: '12px' }}>
-                  QUARTIER GÉNÉRAL
+                  SHADOW GARDEN <span className="font-medium text-blue-500" style={{ fontSize: '12px' }}>QUARTIER GÉNÉRAL</span>
                 </p>
                 <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px' }}>
                   EL CID
@@ -203,13 +200,15 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   ID: {card.cardNumber || "OTK-2025-00001"}
                 </p>
               </div>
-              <div className="text-right flex flex-col">
-                <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
-                  Date: {card.issueDate || "28/04/2025"}
-                </p>
-                <p className="font-medium text-red-600 uppercase" style={{ fontSize: '14px' }}>
-                  Exp: {card.expiryDate || "28/04/2026"}
-                </p>
+              <div className="text-right" style={{ width: '45%' }}>
+                <div className="flex justify-end space-x-3">
+                  <p className="font-medium text-blue-600 uppercase" style={{ fontSize: '14px' }}>
+                    Date: {card.issueDate || "28/04/2025"}
+                  </p>
+                  <p className="font-medium text-red-600 uppercase" style={{ fontSize: '14px' }}>
+                    Exp: {card.expiryDate || "28/04/2026"}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
