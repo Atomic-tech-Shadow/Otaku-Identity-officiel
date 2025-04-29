@@ -19,11 +19,10 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         id="otakuIdCard"
         className="relative rounded-xl overflow-hidden card-shadow"
         style={{
-          background: 'linear-gradient(135deg, #2c3e50 0%, #4a69bd 100%)',
+          backgroundColor: '#2c3e50',
           maxWidth: '400px',
           width: '100%',
-          height: 'auto',
-          aspectRatio: '1.7/1',
+          height: '230px',
           borderRadius: '14px',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
         }}
@@ -58,7 +57,7 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
         </div>
 
         {/* White Content Panel */}
-        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="relative z-20 mx-3 mt-2 mb-3 bg-white rounded-lg shadow-lg" style={{ maxHeight: '165px', overflow: 'hidden' }}>
           {/* Card Content */}
           <div className="relative p-3 flex flex-row">
             {/* Left Section - Photo and Basic Info */}
@@ -137,20 +136,20 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                     </p>
                   </div>
                   
-                  {/* Citation */}
-                  <div className="bg-blue-50 p-2 mt-1 max-w-full rounded-md">
-                    <p className="text-[11px] font-medium text-gray-800 italic overflow-hidden" style={{
-                      display: '-webkit-box',
-                      WebkitLineClamp: '2',
-                      WebkitBoxOrient: 'vertical'
+                  {/* Citation - plus compacte */}
+                  <div className="bg-blue-50 p-1 mt-1 max-w-full rounded-md">
+                    <p className="text-[10px] font-medium text-gray-800 italic overflow-hidden" style={{
+                      maxHeight: '30px',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap'
                     }}>
                       "{card.quote || "..."}"
                     </p>
                   </div>
                   
-                  <div className="mt-2 text-center pt-0.5">
-                    <p className="text-[10px] text-gray-700 italic">
-                      Cette carte atteste de votre passion pour l'univers des animes
+                  <div className="mt-1 text-center">
+                    <p className="text-[9px] text-gray-700 italic">
+                      Passeport Otaku officiel
                     </p>
                   </div>
                 </div>
@@ -183,26 +182,26 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                       )}
                     </div>
                   )}
-                  <div className="mt-2 text-center bg-gradient-to-r from-blue-200 to-blue-100 rounded p-1.5 w-full shadow-sm">
-                    <p className="text-[10px] font-bold text-gray-800">
+                  <div className="mt-1 text-center bg-gradient-to-r from-blue-200 to-blue-100 rounded p-1 w-full shadow-sm">
+                    <p className="text-[9px] font-bold text-gray-800">
                       SHADOW GARDEN
                     </p>
-                    <p className="text-[9px] font-medium text-blue-600">
+                    <p className="text-[8px] font-medium text-blue-600">
                       QUARTIER GÉNÉRAL
                     </p>
                   </div>
                 </div>
               </div>
               
-              {/* Card info footer */}
-              <div className="flex justify-between mt-3 pt-1 border-t border-blue-200">
+              {/* Card info footer minimaliste */}
+              <div className="flex justify-between mt-1 pt-0.5 border-t border-blue-100">
                 <div>
-                  <p className="text-[9px] font-semibold text-blue-700 uppercase">
+                  <p className="text-[7px] font-medium text-blue-600 uppercase">
                     ID: {card.cardNumber || "OTK-2025-00001"}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[9px] font-semibold text-blue-700 uppercase">
+                  <p className="text-[7px] font-medium text-blue-600 uppercase">
                     Date: {card.issueDate || "28/04/2025"}
                   </p>
                 </div>
