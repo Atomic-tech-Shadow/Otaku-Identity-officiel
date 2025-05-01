@@ -115,18 +115,24 @@ export const elementToImage = async (element: HTMLElement, options = {}): Promis
 
   // Create a high-quality capture
   const canvas = await html2canvas(element, {
-    scale: 3, // Higher scale for better quality
+    scale: 4, // Higher scale for better quality (4x)
     useCORS: true, // Allow images from other domains
     allowTaint: true, // Allow "tainted" images from other domains
     backgroundColor: null, // Transparent background
     logging: false,
     imageTimeout: 0, // No timeout for image loading
+    width: 860, // Force width
+    height: 540, // Force height
+    windowWidth: 860,
+    windowHeight: 540,
     onclone: (documentClone) => {
       // Adjust clone for better rendering
       const clonedElement = documentClone.querySelector(`#${element.id}`) as HTMLElement;
       if (clonedElement) {
         clonedElement.style.transform = 'none';
         clonedElement.style.boxShadow = 'none';
+        clonedElement.style.width = '860px';
+        clonedElement.style.height = '540px';
       }
     },
     ...options
