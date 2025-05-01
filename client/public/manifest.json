@@ -1,13 +1,22 @@
 {
   "name": "Carte d'Identité Otaku",
   "short_name": "ID Otaku",
-  "description": "Créez votre carte d'identité Otaku personnalisée",
+  "description": "Créez votre carte d'identité Otaku personnalisée et affirmez votre passion pour les animes et mangas",
   "theme_color": "#3d6cb3",
   "background_color": "#f8f6e9",
   "display": "standalone",
   "orientation": "landscape",
   "scope": "/",
   "start_url": "/",
+  "categories": ["personalization", "entertainment", "social"],
+  "screenshots": [
+    {
+      "src": "/icons/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
   "icons": [
     {
       "src": "/icons/icon.svg",
@@ -15,5 +24,14 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Créer une Carte",
+      "short_name": "Créer",
+      "description": "Créer une nouvelle carte d'identité Otaku",
+      "url": "/"
+    }
+  ],
+  "prefer_related_applications": false
 }
