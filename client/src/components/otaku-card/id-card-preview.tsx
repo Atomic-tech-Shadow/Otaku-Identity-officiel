@@ -89,6 +89,34 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             <div className="absolute top-0 right-0 opacity-20" style={{ fontSize: '150px', fontFamily: 'Arial', color: '#3d6cb3', transform: 'rotate(15deg)', zIndex: 0, lineHeight: 0.8 }}>漫画</div>
             <div className="absolute bottom-10 left-10 opacity-10" style={{ fontSize: '70px', fontFamily: 'Arial', color: '#3d6cb3', transform: 'rotate(-10deg)', zIndex: 0 }}>オタク</div>
             
+            {/* Symboles atomiques en filigrane */}
+            <div className="absolute top-1/4 left-1/3 opacity-10" style={{ zIndex: 0 }}>
+              <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(0)" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(60)" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(120)" />
+                <circle cx="50" cy="50" r="5" fill="#3d6cb3" />
+                <circle cx="50" cy="5" r="3" fill="#3d6cb3" />
+                <circle cx="50" cy="95" r="3" fill="#3d6cb3" />
+                <circle cx="5" cy="50" r="3" fill="#3d6cb3" />
+                <circle cx="95" cy="50" r="3" fill="#3d6cb3" />
+              </svg>
+            </div>
+            
+            <div className="absolute bottom-1/4 right-1/3 opacity-10" style={{ zIndex: 0 }}>
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
+                <circle cx="50" cy="50" r="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
+                <circle cx="50" cy="50" r="10" fill="#3d6cb3" opacity="0.4" />
+                <circle cx="70" cy="50" r="3" fill="#3d6cb3" />
+                <circle cx="30" cy="50" r="3" fill="#3d6cb3" />
+                <circle cx="50" cy="70" r="3" fill="#3d6cb3" />
+                <circle cx="50" cy="30" r="3" fill="#3d6cb3" />
+              </svg>
+            </div>
+            
             {/* Left Side - Photo */}
             <div className="flex-shrink-0 mr-8">
               <div style={{ width: '180px', height: '220px', position: 'relative' }} className="relative bg-white border-2 border-blue-300 rounded-md overflow-hidden flex items-center justify-center shadow-md">
