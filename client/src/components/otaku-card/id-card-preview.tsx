@@ -82,58 +82,104 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             backgroundSize: '400px',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            opacity: 0.9
+            opacity: 0.9,
+            position: 'relative'
           }}>
+            {/* Éléments de style manga */}
+            <div className="absolute top-0 right-0 opacity-20" style={{ fontSize: '150px', fontFamily: 'Arial', color: '#3d6cb3', transform: 'rotate(15deg)', zIndex: 0, lineHeight: 0.8 }}>漫画</div>
+            <div className="absolute bottom-10 left-10 opacity-10" style={{ fontSize: '70px', fontFamily: 'Arial', color: '#3d6cb3', transform: 'rotate(-10deg)', zIndex: 0 }}>オタク</div>
             
             {/* Left Side - Photo */}
             <div className="flex-shrink-0 mr-8">
-              <div style={{ width: '180px', height: '220px' }} className="bg-white border-2 border-blue-300 rounded-md overflow-hidden flex items-center justify-center shadow-md">
+              <div style={{ width: '180px', height: '220px', position: 'relative' }} className="relative bg-white border-2 border-blue-300 rounded-md overflow-hidden flex items-center justify-center shadow-md">
+                {/* Bordure style manga */}
+                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 z-10"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 z-10"></div>
+                <div className="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 via-red-500 to-pink-500 z-10"></div>
+                <div className="absolute top-0 right-0 bottom-0 w-2 bg-gradient-to-b from-pink-500 via-red-500 to-yellow-400 z-10"></div>
+                
+                {/* Points d'effet manga dans les coins */}
+                <div className="absolute top-3 left-3 w-4 h-4 bg-white border border-blue-500 rounded-full z-10"></div>
+                <div className="absolute top-3 right-3 w-4 h-4 bg-white border border-blue-500 rounded-full z-10"></div>
+                <div className="absolute bottom-3 left-3 w-4 h-4 bg-white border border-blue-500 rounded-full z-10"></div>
+                <div className="absolute bottom-3 right-3 w-4 h-4 bg-white border border-blue-500 rounded-full z-10"></div>
+                
                 {card.photo ? (
                   <img
                     src={card.photo}
                     alt="Profile"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover z-0"
                   />
                 ) : (
-                  <User className="h-20 w-20 text-blue-400" />
+                  <User className="h-20 w-20 text-blue-400 z-0" />
                 )}
               </div>
             </div>
             
             {/* Middle section - Information */}
-            <div className="flex-grow space-y-3 pr-4">
-              <div>
+            <div className="flex-grow space-y-3 pr-4 relative z-10">
+              {/* Manga style background pattern */}
+              <div className="absolute -top-2 -right-2 w-6 h-6" style={{ backgroundImage: "radial-gradient(circle, #3d6cb3 1px, transparent 1px)", backgroundSize: "5px 5px" }}></div>
+              <div className="absolute -bottom-2 -left-2 w-8 h-8" style={{ backgroundImage: "radial-gradient(circle, #3d6cb3 1px, transparent 1px)", backgroundSize: "4px 4px" }}></div>
+              
+              <div className="relative overflow-hidden rounded pl-1" style={{ background: 'linear-gradient(90deg, rgba(61,108,179,0.1) 0%, rgba(255,255,255,0) 100%)' }}>
                 <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
-                  <span className="font-bold mr-2">NOM D'UTILISATEUR:</span> {card.username || "..."}
+                  <span className="font-bold mr-2">NOM D'UTILISATEUR:</span> 
+                  <span className="font-semibold" style={{ textShadow: '0px 0px 1px rgba(61,108,179,0.5)' }}>
+                    {card.username || "..."}
+                  </span>
                 </p>
-              </div>
-              <div>
-                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
-                  <span className="font-bold mr-2">NOM RÉEL:</span> {card.realName || "..."}
-                </p>
-              </div>
-              <div>
-                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
-                  <span className="font-bold mr-2">NATIONALITÉ:</span> {countryData?.name || "..."}
-                </p>
-              </div>
-              <div>
-                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
-                  <span className="font-bold mr-2">STATUT:</span> {card.status || "..."}
-                </p>
-              </div>
-              <div>
-                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
-                  <span className="font-bold mr-2">GENRE PRÉFÉRÉ:</span> {card.genre || "..."}
-                </p>
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600"></div>
               </div>
               
-              {/* Citation */}
-              <div className="mt-4">
+              <div className="relative overflow-hidden rounded pl-1" style={{ background: 'linear-gradient(90deg, rgba(61,108,179,0.1) 0%, rgba(255,255,255,0) 100%)' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
+                  <span className="font-bold mr-2">NOM RÉEL:</span> 
+                  <span className="font-semibold" style={{ textShadow: '0px 0px 1px rgba(61,108,179,0.5)' }}>
+                    {card.realName || "..."}
+                  </span>
+                </p>
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600"></div>
+              </div>
+              
+              <div className="relative overflow-hidden rounded pl-1" style={{ background: 'linear-gradient(90deg, rgba(61,108,179,0.1) 0%, rgba(255,255,255,0) 100%)' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
+                  <span className="font-bold mr-2">NATIONALITÉ:</span> 
+                  <span className="font-semibold" style={{ textShadow: '0px 0px 1px rgba(61,108,179,0.5)' }}>
+                    {countryData?.name || "..."}
+                  </span>
+                </p>
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600"></div>
+              </div>
+              
+              <div className="relative overflow-hidden rounded pl-1" style={{ background: 'linear-gradient(90deg, rgba(61,108,179,0.1) 0%, rgba(255,255,255,0) 100%)' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
+                  <span className="font-bold mr-2">STATUT:</span> 
+                  <span className="font-semibold" style={{ textShadow: '0px 0px 1px rgba(61,108,179,0.5)' }}>
+                    {card.status || "..."}
+                  </span>
+                </p>
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600"></div>
+              </div>
+              
+              <div className="relative overflow-hidden rounded pl-1" style={{ background: 'linear-gradient(90deg, rgba(61,108,179,0.1) 0%, rgba(255,255,255,0) 100%)' }}>
+                <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
+                  <span className="font-bold mr-2">GENRE PRÉFÉRÉ:</span> 
+                  <span className="font-semibold" style={{ textShadow: '0px 0px 1px rgba(61,108,179,0.5)' }}>
+                    {card.genre || "..."}
+                  </span>
+                </p>
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600"></div>
+              </div>
+              
+              {/* Citation with manga style border */}
+              <div className="mt-4 relative pl-1 border-l-2 border-blue-400">
                 <p style={{ fontSize: '16px', color: card.textColor || '#000000' }}>
                   <span className="font-bold mr-2">CITATION FAVORITE:</span>
                 </p>
-                <p className="italic ml-1 overflow-hidden" style={{
+                <div className="absolute -top-1 -left-1 w-2 h-2 bg-blue-400 rounded-full"></div>
+                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400 rounded-full"></div>
+                <p className="italic ml-1 overflow-hidden relative p-2 border border-dashed border-blue-300 rounded-sm bg-gradient-to-br from-white to-blue-50" style={{
                   fontSize: '15px',
                   maxHeight: '60px',
                   textOverflow: 'ellipsis',
@@ -141,6 +187,8 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   color: card.textColor || '#000000'
                 }}>
                   "{card.quote || "..."}"
+                  {/* Manga speech effect in corner */}
+                  <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-white border border-blue-300 transform rotate-45"></div>
                 </p>
               </div>
             </div>
@@ -173,21 +221,45 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
                   )}
                 </div>
               )}
-              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm rounded-sm">
-                <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>
-                  SHADOW GARDEN
-                </p>
-                <p className="font-medium text-blue-500" style={{ fontSize: '12px' }}>
-                  QUARTIER GÉNÉRAL
-                </p>
-                <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px' }}>
-                  EL CID
-                </p>
-                <div className="mt-1 flex justify-center">
-                  <div className="text-blue-800 italic font-cursive" style={{ fontSize: '10px', fontFamily: 'cursive', letterSpacing: '1px' }}>
-                    signature
+              <div className="mt-4 text-center bg-gradient-to-r from-blue-200 to-blue-100 p-1 w-full shadow-sm rounded-sm relative overflow-hidden">
+                {/* Manga style effects - speed lines */}
+                <div className="absolute inset-0 opacity-5" style={{ 
+                  backgroundImage: 'repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent 5px)',
+                  backgroundSize: '5px 100%',
+                  zIndex: 0
+                }}></div>
+                
+                <div className="relative z-10">
+                  <p className="font-bold text-blue-700" style={{ fontSize: '14px', textShadow: '0 0 1px #3d6cb3' }}>
+                    SHADOW GARDEN
+                  </p>
+                  <p className="font-medium text-blue-500" style={{ fontSize: '12px' }}>
+                    QUARTIER GÉNÉRAL
+                  </p>
+                  <p className="font-bold text-blue-700 mt-1" style={{ fontSize: '13px', letterSpacing: '1px' }}>
+                    EL CID
+                  </p>
+                  <div className="mt-1 flex justify-center">
+                    <div className="text-blue-800 italic font-cursive" style={{ 
+                      fontSize: '14px', 
+                      fontFamily: 'cursive', 
+                      letterSpacing: '1px',
+                      textShadow: '0 0 1px #3d6cb3'
+                    }}>
+                      signature
+                    </div>
                   </div>
                 </div>
+                
+                {/* Manga style spark effects */}
+                <div className="absolute top-1 right-2 w-3 h-3" style={{ 
+                  background: 'radial-gradient(circle, white 0%, transparent 70%)',
+                  boxShadow: '0 0 3px 1px rgba(255,255,255,0.7)'
+                }}></div>
+                <div className="absolute bottom-2 left-2 w-2 h-2" style={{ 
+                  background: 'radial-gradient(circle, white 0%, transparent 70%)',
+                  boxShadow: '0 0 2px 1px rgba(255,255,255,0.7)'
+                }}></div>
               </div>
             </div>
           </div>
