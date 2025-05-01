@@ -90,30 +90,49 @@ export function IdCardPreview({ card, cardRef }: IdCardPreviewProps) {
             <div className="absolute bottom-10 left-10 opacity-10" style={{ fontSize: '70px', fontFamily: 'Arial', color: '#3d6cb3', transform: 'rotate(-10deg)', zIndex: 0 }}>オタク</div>
             
             {/* Symboles atomiques en filigrane */}
-            <div className="absolute top-1/4 left-1/3 opacity-10" style={{ zIndex: 0 }}>
-              <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
-                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(0)" />
-                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(60)" />
-                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" transform="rotate(120)" />
-                <circle cx="50" cy="50" r="5" fill="#3d6cb3" />
-                <circle cx="50" cy="5" r="3" fill="#3d6cb3" />
-                <circle cx="50" cy="95" r="3" fill="#3d6cb3" />
-                <circle cx="5" cy="50" r="3" fill="#3d6cb3" />
-                <circle cx="95" cy="50" r="3" fill="#3d6cb3" />
+            <div className="absolute top-20 left-48 opacity-30" style={{ zIndex: 0 }}>
+              <svg width="180" height="180" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3d6cb3" strokeWidth="2.5" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="2.5" transform="rotate(0)" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="2.5" transform="rotate(60)" />
+                <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#3d6cb3" strokeWidth="2.5" transform="rotate(120)" />
+                <circle cx="50" cy="50" r="7" fill="#3d6cb3" />
+                <circle cx="50" cy="5" r="4" fill="#3d6cb3" />
+                <circle cx="50" cy="95" r="4" fill="#3d6cb3" />
+                <circle cx="5" cy="50" r="4" fill="#3d6cb3" />
+                <circle cx="95" cy="50" r="4" fill="#3d6cb3" />
               </svg>
             </div>
             
-            <div className="absolute bottom-1/4 right-1/3 opacity-10" style={{ zIndex: 0 }}>
-              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="30" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="20" fill="none" stroke="#3d6cb3" strokeWidth="1.5" />
-                <circle cx="50" cy="50" r="10" fill="#3d6cb3" opacity="0.4" />
-                <circle cx="70" cy="50" r="3" fill="#3d6cb3" />
-                <circle cx="30" cy="50" r="3" fill="#3d6cb3" />
-                <circle cx="50" cy="70" r="3" fill="#3d6cb3" />
-                <circle cx="50" cy="30" r="3" fill="#3d6cb3" />
+            <div className="absolute bottom-32 right-48 opacity-30" style={{ zIndex: 0 }}>
+              <svg width="140" height="140" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#3d6cb3" strokeWidth="2.5" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#3d6cb3" strokeWidth="2.5" />
+                <circle cx="50" cy="50" r="20" fill="none" stroke="#3d6cb3" strokeWidth="2.5" />
+                <circle cx="50" cy="50" r="10" fill="#3d6cb3" opacity="0.6" />
+                <circle cx="70" cy="50" r="5" fill="#3d6cb3" />
+                <circle cx="30" cy="50" r="5" fill="#3d6cb3" />
+                <circle cx="50" cy="70" r="5" fill="#3d6cb3" />
+                <circle cx="50" cy="30" r="5" fill="#3d6cb3" />
+              </svg>
+            </div>
+            
+            {/* Symbole atomique supplémentaire plus visible */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-15" style={{ zIndex: 0 }}>
+              <svg width="300" height="300" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3d6cb3" strokeWidth="1" />
+                <ellipse cx="50" cy="50" rx="45" ry="15" fill="none" stroke="#3d6cb3" strokeWidth="1" transform="rotate(30)" />
+                <ellipse cx="50" cy="50" rx="45" ry="15" fill="none" stroke="#3d6cb3" strokeWidth="1" transform="rotate(90)" />
+                <ellipse cx="50" cy="50" rx="45" ry="15" fill="none" stroke="#3d6cb3" strokeWidth="1" transform="rotate(150)" />
+                <circle cx="50" cy="50" r="6" fill="#3d6cb3" opacity="0.3" />
+                <circle cx="5" cy="50" r="3" fill="#3d6cb3" />
+                <circle cx="95" cy="50" r="3" fill="#3d6cb3" />
+                <circle cx="50" cy="5" r="3" fill="#3d6cb3" />
+                <circle cx="50" cy="95" r="3" fill="#3d6cb3" />
+                <circle cx="26" cy="26" r="3" fill="#3d6cb3" />
+                <circle cx="74" cy="74" r="3" fill="#3d6cb3" />
+                <circle cx="26" cy="74" r="3" fill="#3d6cb3" />
+                <circle cx="74" cy="26" r="3" fill="#3d6cb3" />
               </svg>
             </div>
             
