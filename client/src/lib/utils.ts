@@ -30,17 +30,17 @@ export function calculateExpiryDate(issueDateStr: string): string {
   if (parts.length !== 3) {
     return ''; // Date invalide
   }
-  
+
   // Construire la date (month est 0-based dans JavaScript)
   const issueDate = new Date(
     parseInt(parts[2]), // année
     parseInt(parts[1]) - 1, // mois (0-11)
     parseInt(parts[0]) // jour
   );
-  
+
   // Ajouter 1 an
   issueDate.setFullYear(issueDate.getFullYear() + 1);
-  
+
   // Formater la nouvelle date
   return `${String(issueDate.getDate()).padStart(2, '0')}/${String(issueDate.getMonth() + 1).padStart(2, '0')}/${issueDate.getFullYear()}`;
 }
@@ -91,10 +91,10 @@ export const otakuStatuses = [
 ];
 
 // Helper function to convert HTML Element to image
-export const elementToImage = async (element: HTMLElement): Promise<string> => {
+export const elementToImage = async (element: HTMLElement, options = {}): Promise<string> => {
   // Dynamically import html2canvas to avoid server-side rendering issues
   const html2canvas = (await import("html2canvas")).default;
-  
+
   // Temporarily apply fixed positioning styles to ensure everything is visible
   const originalStyles = {
     width: element.style.width,
@@ -104,7 +104,7 @@ export const elementToImage = async (element: HTMLElement): Promise<string> => {
     top: element.style.top,
     overflow: element.style.overflow
   };
-  
+
   // Apply fixed dimensions to ensure all content is captured properly
   if (window.innerWidth < 768) { // Mobile
     element.style.width = '400px';
@@ -112,7 +112,7 @@ export const elementToImage = async (element: HTMLElement): Promise<string> => {
     element.style.width = '500px';
   }
   element.style.height = 'auto';
-  
+
   // Create a high-quality capture
   const canvas = await html2canvas(element, {
     scale: 3, // Higher scale for better quality
@@ -128,9 +128,10 @@ export const elementToImage = async (element: HTMLElement): Promise<string> => {
         clonedElement.style.transform = 'none';
         clonedElement.style.boxShadow = 'none';
       }
-    }
+    },
+    ...options
   });
-  
+
   // Restore original styles
   element.style.width = originalStyles.width;
   element.style.height = originalStyles.height;
@@ -138,7 +139,7 @@ export const elementToImage = async (element: HTMLElement): Promise<string> => {
   element.style.left = originalStyles.left;
   element.style.top = originalStyles.top;
   element.style.overflow = originalStyles.overflow;
-  
+
   return canvas.toDataURL("image/png", 1.0); // Use maximum quality
 };
 
@@ -149,15 +150,15 @@ export const cropToPassportFormat = (imageDataUrl: string): Promise<string> => {
     img.onload = () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      
+
       if (!ctx) {
         resolve(imageDataUrl);
         return;
       }
-      
+
       // Calculate dimensions for 3:4 aspect ratio (width:height)
       let targetWidth, targetHeight, sourceX, sourceY;
-      
+
       if (img.width / img.height > 3/4) {
         // Image is wider than 3:4
         targetHeight = img.height;
@@ -171,21 +172,21 @@ export const cropToPassportFormat = (imageDataUrl: string): Promise<string> => {
         sourceX = 0;
         sourceY = (img.height - targetHeight) / 2;
       }
-      
+
       // Set canvas size to the target dimensions
       canvas.width = targetWidth;
       canvas.height = targetHeight;
-      
+
       // Draw the cropped image
       ctx.drawImage(
         img,
         sourceX, sourceY, targetWidth, targetHeight,
         0, 0, targetWidth, targetHeight
       );
-      
+
       resolve(canvas.toDataURL('image/jpeg', 0.9));
     };
-    
+
     img.src = imageDataUrl;
   });
 };

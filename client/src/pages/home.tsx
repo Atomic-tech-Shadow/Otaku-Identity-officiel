@@ -57,33 +57,58 @@ export default function Home() {
         description: "Génération de votre carte d'identité",
       });
       
-      // Force all content to be visible before capturing
       const cardElement = cardRef.current;
+      if (!cardElement) return;
+
+      // Sauvegarder les styles originaux
+      const originalWidth = cardElement.style.width;
+      const originalHeight = cardElement.style.height;
+      const originalTransform = cardElement.style.transform;
+      const originalDisplay = cardElement.style.display;
+
+      // Appliquer les dimensions exactes pour la capture
+      cardElement.style.width = '860px';
+      cardElement.style.height = '540px';
+      cardElement.style.transform = 'none';
+      cardElement.style.display = 'block';
+
+      // Désactiver temporairement les contraintes de hauteur
+      const textElements = cardElement.querySelectorAll('p, div');
+      const originalStyles = new Map();
       
-      // Temporarily remove max-height constraints and scrollbars
-      const elementsWithMaxHeight = cardElement.querySelectorAll('.max-h-12, .max-h-14');
-      const originalStyles: Array<{element: Element, maxHeight: string, overflow: string}> = [];
-      
-      elementsWithMaxHeight.forEach(element => {
+      textElements.forEach(element => {
         const htmlElement = element as HTMLElement;
-        originalStyles.push({
-          element: htmlElement,
+        originalStyles.set(element, {
           maxHeight: htmlElement.style.maxHeight,
-          overflow: htmlElement.style.overflow
+          overflow: htmlElement.style.overflow,
+          textOverflow: htmlElement.style.textOverflow,
+          whiteSpace: htmlElement.style.whiteSpace
         });
         
         htmlElement.style.maxHeight = 'none';
         htmlElement.style.overflow = 'visible';
+        htmlElement.style.textOverflow = 'clip';
+        htmlElement.style.whiteSpace = 'normal';
       });
 
-      // Generate image with all content visible
-      const dataUrl = await elementToImage(cardRef.current);
+      // Générer l'image avec les dimensions exactes
+      const dataUrl = await elementToImage(cardElement, {
+        width: 860,
+        height: 540,
+        quality: 1,
+        pixelRatio: 2
+      });
       
-      // Restore original styles
-      originalStyles.forEach(item => {
-        const htmlElement = item.element as HTMLElement;
-        htmlElement.style.maxHeight = item.maxHeight;
-        htmlElement.style.overflow = item.overflow;
+      // Restaurer les styles originaux
+      cardElement.style.width = originalWidth;
+      cardElement.style.height = originalHeight;
+      cardElement.style.transform = originalTransform;
+      cardElement.style.display = originalDisplay;
+      
+      textElements.forEach(element => {
+        const htmlElement = element as HTMLElement;
+        const original = originalStyles.get(element);
+        Object.assign(htmlElement.style, original);
       });
       
       // Create download link
