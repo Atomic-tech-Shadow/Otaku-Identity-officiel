@@ -5,7 +5,7 @@
   "theme_color": "#3d6cb3",
   "background_color": "#f8f6e9",
   "display": "standalone",
-  "orientation": "landscape",
+  "orientation": "any",
   "scope": "/",
   "start_url": "/",
   "categories": ["personalization", "entertainment", "social"],
